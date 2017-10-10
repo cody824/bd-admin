@@ -1,5 +1,5 @@
 Ext.define('SureAdmin.util.Common', {
-    singleton: true, 
+    singleton: true
 });
 
 

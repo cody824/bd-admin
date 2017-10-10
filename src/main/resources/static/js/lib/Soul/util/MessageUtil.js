@@ -69,7 +69,7 @@ Ext.define('Soul.util.MessageUtil', {
 	   			Ext.each(me.logoutErrorCode, function(errorCode){
 	   				if(msg.indexOf(ERROR_INFO[errorCode]) > 0) {
 	   					isLogout = true;
-						SureAuthInfo.logout();
+						//SureAuthInfo.logout();
 						return false;
 					}
 	   			});

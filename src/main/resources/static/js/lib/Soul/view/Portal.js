@@ -183,7 +183,7 @@ Ext.define('Soul.view.Portal', {
 		var me = this;
 		var data = Soul.Ajax.getSyncText("/innerHtml/indexHeader.html");
 		
-		var html = Ext.util.Format.format(data, me.baseConfig.headerLogo, SureAuthInfo.loginUserName);
+		var html = Ext.util.Format.format(data, me.baseConfig.headerLogo, "");//SureAuthInfo.loginUserName
 		
 		var header = new Ext.Panel({ 
 			region: 'north',

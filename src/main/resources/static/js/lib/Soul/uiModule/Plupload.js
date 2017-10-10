@@ -37,7 +37,7 @@ Ext.define('Soul.uiModule.Plupload', {
 		
 		send_chunk_number : false,
 
-		browse_button : 'pickfiles',
+		browse_button : 'pickfiles'
 	},
 
 	data : new Array(),
@@ -46,7 +46,7 @@ Ext.define('Soul.uiModule.Plupload', {
 		var me = this;
 		me.initConfig(cfg);
 		
-		var authorization = SureAuthTool.buildAuthrization(me.url, me.method, me.headers);
+		var authorization = ""//SureAuthTool.buildAuthrization(me.url, me.method, me.headers);
         Ext.apply(me.headers ,{Authorization: authorization});
 		
 		me.uploader = new plupload.Uploader({

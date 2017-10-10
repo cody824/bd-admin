@@ -3,8 +3,7 @@ var ybApp = Ext.application({
 
 	controllers : [
 	               'AppConfig',
-	               'BaseConfig',
-	               'Login'
+	               'BaseConfig'
 	],
 
 	name : 'SureAdmin',
@@ -31,9 +30,9 @@ var ybApp = Ext.application({
 		
 		
 		//获取登录信息
-		SureAuthInfo.init();
-		var saki = SureAuthInfo.getAccessKeyId() || 'none';
-		var loginName = SureAuthInfo.getLoginName();
+		//SureAuthInfo.init();
+		//var saki = SureAuthInfo.getAccessKeyId() || 'none';
+		var loginName = "管理员";//SureAuthInfo.getLoginName();
 		
 		var BaseConfig = this.getModel('BaseConfig');
 		BaseConfig.load("", {
@@ -58,15 +57,5 @@ var ybApp = Ext.application({
 	initApp :function(bc, loginName){
 		var appC = this.getController("AppConfig");
 		appC.initSingleWin(bc, loginName, appC);
-	},
-	
-	initLogin :function(bc){
-		var loginWin = Ext.create('SureAdmin.view.app.LoginWindow');
-		var loginPortal = Ext.create('Soul.view.LoginPortal', {
-				useLoginWin : true,
-				loginWin : loginWin,
-				baseConfig : bc
-			});
-		loginPortal.initLoginWin();
 	}
 });

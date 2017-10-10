@@ -116,7 +116,7 @@ Ext.override(Ext.data.Connection, {
 	            headers['X-Requested-With'] = me.defaultXhrHeader;
 	        }
 	        
-	        var authorization = SureAuthTool.buildAuthrization(options.requestOptionUrl, options.requestOptionMethod, headers);
+	        var authorization = "";//SureAuthTool.buildAuthrization(options.requestOptionUrl, options.requestOptionMethod, headers);
             Ext.apply(headers ,{Authorization: authorization});
 	        
 	        // set up all the request headers on the xhr object

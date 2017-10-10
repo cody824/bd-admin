@@ -5,14 +5,14 @@ Ext.define('SureAdmin.model.BaseConfig', {
     fields: [
 		{name: 'testMode',  type: 'boolean', defaultValue: false},
 		{name: 'loginLogo',   type: 'string', defaultValue: 'defaultLogo.png'},
-		{name: 'loginTitle',   type: 'string', defaultValue: 'SOUL'},
+		{name: 'loginTitle',   type: 'string', defaultValue: 'NOKNOWN'},
 		{name: 'yytUrl',   type: 'string', defaultValue: '/'},
 		{name: 'language',   type: 'string', defaultValue: 'zh_CN'},
-		{name: 'mode',   type: 'string', defaultValue: 'stor'},
-		{name: 'headerTitle',   type: 'string', defaultValue: 'SOUL'},
+		{name: 'mode',   type: 'string', defaultValue: 'NOKNOWN'},
+		{name: 'headerTitle',   type: 'string', defaultValue: 'NOKNOWN'},
 		{name: 'headerLogo',   type: 'string', defaultValue: 'defaultLogo.png'},
-		{name: 'indexTitle', type: 'string', defaultValue: 'SOUL'},
-		{name: 'appId', type: 'string', defaultValue: 'yearbook'}
+		{name: 'indexTitle', type: 'string', defaultValue: 'NOKNOWN'},
+		{name: 'appId', type: 'string', defaultValue: 'noknown'}
 		],
 		
 	proxy: {
@@ -20,7 +20,7 @@ Ext.define('SureAdmin.model.BaseConfig', {
         url : '/globalconfig/baseConfig/sureAdmin',
         headers : {
         	Accept : 'application/json'
-        },
+        }
     },
     
     getLanguageFile :function (lang){
