@@ -1,0 +1,73 @@
+.x-body {
+	font-family: helvetica, tahoma, verdana, sans-serif;
+	font-size: 13px;
+}
+
+p {
+	margin-bottom: 15px;
+}
+
+h1 {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-size: 14px;
+	color: #333;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.bot_new_zh{ background-image:url(../img/bot-new.jpg); width:88px; height:29px;background-repeat: no-repeat; text-align:center; font:12px "宋体"; color:#ffffff;}
+.bot_new_en{ background-image:url(../img/bot-new.jpg); width:88px; height:29px;background-repeat: no-repeat; text-align:center; font:12px "arial"; color:#ffffff;}
+.bot_text_zh{ background-image:url(../img/bot-text.jpg); width:88px; height:29px;background-repeat: no-repeat; text-align:center; font:12px "宋体"; color:#515151;}
+.bot_text_en{ background-image:url(../img/bot-text.jpg); width:88px; height:29px;background-repeat: no-repeat; text-align:center; font:12px "arial"; color:#515151;}
+
+.product_status_offline
+{
+	background : url(../img/icon/monitor-offline.png) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_setup { 
+	background: url(../img/icon/setup.png) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_normal
+{
+	background : url(../img/icon/monitor-info.png) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_warn
+{
+	background : url(../img/icon/monitor-warn.png) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_error
+{
+	background : url(../img/icon/monitor-failed.png) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_wait
+{
+	background : url(../img/icon/loading.gif) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}
+
+.product_status_retry
+{
+	background : url(../img/icon/rollback.gif) no-repeat 0 0 !important;
+	margin-left:13px;
+	height:18px
+}

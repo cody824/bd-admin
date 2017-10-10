@@ -1,0 +1,215 @@
+.settings {
+    background-image:url(../img/icon/advancedsettings.png);
+}
+
+.storage {
+    background-image:url(../img/icon/storage.png);
+}
+
+.security {
+    background-image:url(../img/icon/security.png);
+}
+
+.storage-error {
+    background-image:url(../img/icon/storageError.png);
+}
+
+.storage-blink {
+    background-image:url(../img/icon/storageBlink.gif);
+}
+
+.info {
+    background-image:url(../img/icon/info.png);
+}
+
+.md-disk {
+    background-image:url(../img/icon/hd.png);
+}
+
+.md-disk-32 {
+    background-image:url(../img/icon32/hd.png);
+}
+
+.md-zpool {
+    background-image:url(../img/icon/storage.png);
+}
+
+.md-zpool-32 {
+    background-image:url(../img/icon32/storage.png);
+}
+
+.md-zfs {
+    background-image:url(../img/icon/folder_shared_connect.png);
+}
+
+.md-zfs-32 {
+    background-image:url(../img/icon32/folder_shared_connect.png);
+}
+
+.md-user {
+    background-image:url(../img/icon/user.png);
+}
+
+.md-role {
+    background-image:url(../img/icon/user.png);
+}
+
+.md-user-admin {
+    background-image:url(../img/icon/admin.png);
+}
+
+.md-user-noadmin {
+    background-image:url(../img/icon/noadmin.png);
+}
+
+.md-user-32 {
+    background-image:url(../img/icon32/user.png);
+}
+
+.md-role-32 {
+    background-image:url(../img/icon32/user.png);
+}
+
+.md-userManage {
+    background-image:url(../img/icon/user.png);
+}
+
+.md-userManage-32 {
+    background-image:url(../img/icon32/user.png);
+}
+
+.md-group {
+    background-image:url(../img/icon/group.png);
+}
+
+.md-group-32 {
+    background-image:url(../img/icon32/group.png);
+}
+
+.md-groupManage {
+    background-image:url(../img/icon/group.png);
+}
+
+.md-groupManage-32 {
+    background-image:url(../img/icon32/group.png);
+}
+
+.md-repository {
+    background-image:url(../img/icon/repository.png);
+}
+
+.md-repository-32 {
+    background-image:url(../img/icon32/repository.png);
+}
+
+.md-share {
+    background-image:url(../img/icon/share.png);
+}
+
+.md-share-32 {
+    background-image:url(../img/icon32/share.png);
+}
+
+.md-contact {
+    background-image:url(../img/icon/contact.png);
+}
+
+.md-contact-32 {
+    background-image:url(../img/icon32/contact.png);
+}
+
+.md-zvol {
+    background-image:url(../img/icon/scsi_drive.png);
+}
+
+.md-zvol-32 {
+    background-image:url(../img/icon32/scsi_drive.png);
+}
+
+.md-snapshot {
+    background-image:url(../img/icon/snapshot.png);
+}
+
+.md-snapshot-32 {
+    background-image:url(../img/icon32/snapshot.png);
+}
+
+.md-baseSettings {
+    background-image:url(../img/icon/host_settings.png);
+}
+
+.md-baseSettings-32 {
+    background-image:url(../img/icon32/host_settings.png);
+}
+
+.md-shareSettings {
+    background-image:url(../img/icon/network_share.png);
+}
+
+.md-shareSettings-32 {
+    background-image:url(../img/icon32/network_share.png);
+}
+
+.md-userServiceSettings {
+    background-image:url(../img/icon/network_service.png);
+}
+
+.md-uploadTest {
+    background-image:url(../img/icon/network_service.png);
+}
+
+.md-bookmark {
+    background-image:url(../img/icon/favorites.png);
+}
+
+.md-bookmark-32 {
+    background-image:url(../img/icon32/network_service.png);
+}
+
+.md-userServiceSettings-32 {
+    background-image:url(../img/icon32/network_service.png);
+}
+
+.company {
+    background-image:url(../img/icon/security.png);
+}
+
+.md-verify {
+    background-image:url(../img/icon/user.png);
+}
+
+.md-verify-32 {
+    background-image:url(../img/icon32/user.png);
+}
+
+.md-approval {
+    background-image:url(../img/icon/user.png);
+}
+
+.md-approval-32 {
+    background-image:url(../img/icon32/user.png);
+}
+
+.md-voucher {
+    background-image:url(../img/icon/voucher.png);
+}
+
+.md-userVoucher {
+    background-image:url(../img/icon/userVoucher.png);
+}
+
+.md-scopeCode {
+    background-image:url(../img/icon/scopeCode.png);
+}
+
+.md-voucher-32 {
+    background-image:url(../img/icon32/voucher.png);
+}
+
+.md-userVoucher-32 {
+    background-image:url(../img/icon32/userVoucher.png);
+}
+
+.md-scopeCode-32 {
+    background-image:url(../img/icon32/scopeCode.png);
+}

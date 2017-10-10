@@ -1,0 +1,101 @@
+@import url("admin-general.css");
+/*
+main.css 创建时间：2009-09-05 17:45
+*/
+
+/*top*/
+#header-div{ padding:15px 5px 5px 40px;}
+#logo-div {
+  line-height: 180%;
+  float: left;
+  font-size:16px;
+  font-weight:bold;
+}
+#welcome{
+  height: 40px;
+  float: left;
+  padding-left:10px;
+  line-height:36px;
+  color:#fff;
+  white-space:nowrap;}
+#submenu-div {
+  height: 40px;
+  _overflow:hidden;
+}
+
+#submenu-div ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#submenu-div li {
+  float: right;
+  margin: 3px 0;
+  color:#c2c7da;
+}
+#submenu-div li a{ padding: 0 10px;}
+#submenu-div a:visited, #submenu-div a:link {
+  color:#c2c7da;
+  text-decoration: none;
+}
+#submenu-div a:hover {
+  color: #fff;
+}
+
+#search_info {
+  padding: 5px 10px 0 0; clear:right; color: #FF9900; float: right; white-space:nowrap; width:265px;
+}
+.search_classlist{ float:left; width:64px; height:24px;}
+.search_input,.search_button{ float:left;}
+.search_input input{ background:url(/img/button/search_input_bg.gif) no-repeat left top; *background:url(/img/button/search_input_bg.gif) no-repeat left -1px; height:20px; width:134px; padding:4px; margin:0; border:0; overflow:hidden; line-height:20px; *line-height:18px;}
+.search_button input{ background:url(/img/button/search_icon_btn.gif) no-repeat left top; height:24px; width:25px; overflow:hidden; border:0;}
+
+
+
+
+
+/*top_快捷菜单*/
+#menu-div {
+  font-weight: bold;
+  height: 28px;
+  line-height:28px;
+  border-bottom:12px solid #fff;
+}
+
+#menu-div ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#menu-div li {
+  float: left;
+  padding:0 15px 0 0;
+}
+#menu-div li span{
+  float: left;
+  padding:0 0 0 15px;
+  white-space:nowrap
+}
+#menu-div a:visited, #menu-div a:link {
+  display:block;
+  text-decoration: none;
+  color: #A3A6B5;
+}
+
+#menu-div a:hover {
+  color: #FF9933;
+}
+
+#menu-div li.menu-current{ background:url(/img/nav_listbg.gif) no-repeat right top;}
+#menu-div li.menu-current span{ float:left; background:url(/img/nav_listbg.gif) no-repeat left bottom;}
+#menu-div li.menu-current,#menu-div li.menu-current a:visited,#menu-div li.menu-current a:link{ color:#1F1D32;}
+
+
+
+#submenu-div a.fix-submenu{ clear:both; margin-left:5px; padding:1px 5px; *padding:3px 5px 5px; background:#DDEEF2; color:#278296; }
+#submenu-div a.fix-submenu:hover{ padding:1px 5px; *padding:3px 5px 5px; background:#FFF; color:#278296; }
+#menu-div li.fix-spacel{ width:50px; border-left:none; }
+#menu-div li.fix-spacer{ border-right:none; }
+

@@ -1,0 +1,148 @@
+.mg-template {
+	 background-image:url(../img/icon/ptpl.png);
+}
+
+.md-page {
+    background-image:url(../img/icon/ptpl.png);
+}
+
+.md-page-32 {
+    background-image:url(../img/icon32/ptpl.png);
+}
+
+.md-pageTemplate {
+    background-image:url(../img/icon/ptpl.png);
+}
+
+.md-pageTemplate-32 {
+    background-image:url(../img/icon32/ptpl.png);
+}
+
+.md-sectionTemplate {
+    background-image:url(../img/icon/stpl.png);
+}
+
+.md-sectionTemplate-32 {
+    background-image:url(../img/icon32/stpl.png);
+}
+
+.md-bookTemplate {
+    background-image:url(../img/icon/btpl.png);
+}
+
+.md-bookTemplate-32 {
+    background-image:url(../img/icon32/btpl.png);
+}
+
+.md-book {
+    background-image:url(../img/icon/btpl.png);
+}
+
+.md-book-32 {
+    background-image:url(../img/icon32/btpl.png);
+}
+
+.md-printBook {
+    background-image:url(../img/icon/printer.png);
+}
+
+.md-printBook-32 {
+    background-image:url(../img/icon32/printer.png);
+}
+
+.md-siteConfig {
+    background-image:url(../img/icon/advancedsettings.png);
+}
+
+.md-siteConfig-32 {
+    background-image:url(../img/icon32/network.png);
+}
+.md-notify {
+    background-image:url(../img/icon/switch.png);
+}
+
+.md-notify-32 {
+    background-image:url(../img/icon32/email.png);
+}
+
+.mg-store {
+	 background-image:url(../img/icon/shop.png);
+}
+
+.md-StoreOwner {
+	 background-image:url(../img/icon/user.png);
+}
+
+.md-StoreOwner-32 {
+	 background-image:url(../img/icon/user.png);
+}
+
+.md-StoreShop {
+	 background-image:url(../img/icon/shop.png);
+}
+
+.md-StoreShop-32 {
+	 background-image:url(../img/icon/shop.png);
+}
+
+.md-coupon {
+	 background-image:url(../img/icon/credit_cards.png);
+}
+
+.md-coupon-32{
+	 background-image:url(../img/icon/credit_cards.png);
+}
+
+.md-CI {
+	 background-image:url(../img/icon/info.png);
+}
+
+.md-CI-32{
+	 background-image:url(../img/icon/info.png);
+}
+
+.md-distributor {
+	 background-image:url(../img/icon/group.png);
+}
+
+.md-distributor-32{
+	 background-image:url(../img/icon/group.png);
+}
+
+.md-cashmanager {
+	 background-image:url(../img/icon/dollar_red.png);
+}
+
+.md-cashmanager-32{
+	 background-image:url(../img/icon/dollar_red.png);
+}
+
+.md-Statistics {
+	 background-image:url(../img/icon/stats.png);
+}
+
+.md-Statistics-32{
+	 background-image:url(../img/icon/stats.png);
+}
+
+.md-TradeRecord {
+	 background-image:url(../img/icon/dollar_red.png);
+}
+
+.md-TradeRecord-32{
+	 background-image:url(../img/icon/dollar_red.png);
+}
+
+.md-modulemanager {
+	 background-image:url(../img/icon/blockdevice.png);
+}
+
+.md-modulemanager-32{
+	 background-image:url(../img/icon/blockdevice.png);
+}
+
+.mg-custommodule{
+	 background-image:url(../img/icon/blockdevice.png);
+}
+
+

@@ -1,0 +1,100 @@
+/*
+general.css time:2009-09-04 10:00
+*/
+
+body {
+  margin: 0px;
+  padding: 0px;
+  color: #1F1D32;
+  font: 12px "sans-serif", "Arial", "Verdana";
+}
+
+p, td, div {
+  font: 12px "sans-serif", "Arial", "Verdana";
+}
+
+th {
+  font: 12px "sans-serif", "Arial", "Verdana";
+  font-weight: bold;
+}
+
+form {
+  margin: 0px;
+  padding: 0px;
+}
+
+input, textarea, select {
+  font: 12px "courier new";
+}
+
+a:visited {
+  color: #1F1D32;
+  text-decoration: none;
+}
+
+a:link {
+  color: #1F1D32;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FC0000;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #FC0000;
+  text-decoration: underline;
+}
+
+.clear {
+  clear: both;
+  float: none;
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  display:block;
+}
+
+.nowrap {
+  white-space:nowrap;
+}
+
+.red{ color:#FF0000; padding-right:5px;}
+
+.redlink a:visited ,.redlink a:link {
+  color: #CC0000;
+}
+.redlink a:hover {
+  color:#FC0000;
+  text-decoration: none;
+}
+.link_line a:link, .link_line a:visited, .link_line a:hover{ text-decoration: underline;}
+.b{ font-weight:bold;}
+
+
+
+/*footer*/
+#footer{ width:100%; background:url(../images/footer_bg.gif) repeat-x left top; border-top:1px solid #000; color:#A3A6B5; height:25px; line-height:23px; white-space:nowrap; text-align:center; margin-top:5px;}
+#footer a:visited,#footer a:link {
+  color: #A3A6B5;
+  text-decoration: none;
+}
+#footer a:hover,#footer a:active {
+  color: #C5C8D7;
+  text-decoration: underline;
+}
+
+
+
+
+/*scrollbar*/
+html{
+	scrollbar-3dlight-color:#BEC1C7;
+	scrollbar-highlight-color:#fff;
+	scrollbar-darkshadow-color:#CCD0D8;
+	scrollbar-shadow-color:#fff;
+	scrollbar-arrow-color:#646978;
+	scrollbar-face-color:#BEC1C7;
+}
+

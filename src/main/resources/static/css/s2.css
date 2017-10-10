@@ -1,0 +1,42 @@
+
+.x-form-check-group-boxlabel {
+	color: #333;
+	margin: 6px 30px 0 0;
+}
+
+
+body {
+	font-family: helvetica, tahoma, verdana, sans-serif;
+	padding: 20px;
+	padding-top: 32px;
+	font-size: 13px;
+	background-color: #00FFFF;
+	background-image: url(../img/bg.gif);
+}
+
+.text-button {
+	cursor:pointer;
+	text-align:center;
+	color:#ee8833;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.text-button:hover {
+	color:#ff9933;
+	text-decoration:underline;
+}
+
+.x-underline-handmouse {
+	text-decoration:underline;cursor:pointer;
+}
+
+.x-grid-row-checker-disable
+{
+	height:14px;
+	width:14px;
+	background-image:url('../img/icon/check_disable.png');
+	background-position:-1px -1px;
+	background-repeat:no-repeat;
+	background-color:transparent
+}
