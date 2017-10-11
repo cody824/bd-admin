@@ -42,7 +42,9 @@ Ext.define('Soul.util.ErrorMsgUtil', {
 					args += 'error.errorArgs[' + i + '],';
 			}
 			args +=")";
-		} else {
+		} else if (error.hasOwnProperty('errorMsg') && error.errorMsg.length > 0 ){
+			errorDesc = error.errorMsg;
+		}  else {
 			args = 'ERROR_INFO[' + errorNum + ']';
 		}
 		

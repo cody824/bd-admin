@@ -42,7 +42,7 @@ public class AppConfigController extends BaseController {
 	Object getAppConfig(HttpServletRequest request) throws Exception {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth == null) {
-			return outActionReturn(new ErrorMsg("请登录"), HttpStatus.UNAUTHORIZED);
+			return outActionError("请登录", HttpStatus.UNAUTHORIZED);
 		}
 		
 		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
