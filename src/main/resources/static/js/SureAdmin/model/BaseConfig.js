@@ -9,9 +9,9 @@ Ext.define('SureAdmin.model.BaseConfig', {
 		{name: 'yytUrl',   type: 'string', defaultValue: '/'},
 		{name: 'language',   type: 'string', defaultValue: 'zh_CN'},
 		{name: 'mode',   type: 'string', defaultValue: 'NOKNOWN'},
-		{name: 'headerTitle',   type: 'string', defaultValue: 'NOKNOWN'},
+		{name: 'headerTitle',   type: 'string', defaultValue: '管理后台'},
 		{name: 'headerLogo',   type: 'string', defaultValue: 'defaultLogo.png'},
-		{name: 'indexTitle', type: 'string', defaultValue: 'NOKNOWN'},
+		{name: 'indexTitle', type: 'string', defaultValue: '管理后台'},
 		{name: 'appId', type: 'string', defaultValue: 'noknown'}
 		],
 		

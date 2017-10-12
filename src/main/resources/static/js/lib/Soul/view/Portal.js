@@ -19,6 +19,9 @@ Ext.define('Soul.view.Portal', {
     rightPanel : "",
     userInfoPanel:"",
     baseConfig : {},
+    
+    showRight : false,
+    showBottom : false,
 
     initComponent: function(){
         this.topPanel = this.newHeader();
@@ -26,6 +29,15 @@ Ext.define('Soul.view.Portal', {
         this.centerPanel = this.newMain();
         this.bottomPanel = this.newBottom();
         this.rightPanel = this.newEast();
+        
+        var items = [];
+        items.push(this.leftPanel);
+        items.push(this.centerPanel);
+        if (this.showRight)
+        	items.push(this.rightPanel);
+        if (this.showBottom)
+        	items.push(this.bottomPanel);
+        
         Ext.apply(this, {
             id: 'app-viewport',
             layout: {
@@ -38,7 +50,7 @@ Ext.define('Soul.view.Portal', {
                 region: 'center',
                 layout: 'border',
                 border : false,
-                items: [this.leftPanel, this.centerPanel, this.rightPanel,this.bottomPanel]
+                items: items
             }]
         });
         this.callParent(arguments);
