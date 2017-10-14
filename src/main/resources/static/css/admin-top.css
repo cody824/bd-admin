@@ -16,7 +16,7 @@ main.css 创建时间：2009-09-05 17:45
   float: left;
   padding-left:10px;
   line-height:36px;
-  color:#fff;
+  color:cadetblue;/* cadetblue */
   white-space:nowrap;}
 #submenu-div {
   height: 40px;
@@ -36,7 +36,7 @@ main.css 创建时间：2009-09-05 17:45
 }
 #submenu-div li a{ padding: 0 10px;}
 #submenu-div a:visited, #submenu-div a:link {
-  color:#c2c7da;
+  color:lightsalmon;
   text-decoration: none;
 }
 #submenu-div a:hover {
