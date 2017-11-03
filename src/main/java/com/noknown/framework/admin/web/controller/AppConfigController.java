@@ -55,7 +55,6 @@ public class AppConfigController extends BaseController {
 	/****************** private func **************************/
 	/**
 	 * 获取所有用户所有的权限对应的配置，并作合并&排序
-	 * @param uid
 	 * @param type
 	 * @param domain
 	 * @param containGroup
@@ -68,6 +67,7 @@ public class AppConfigController extends BaseController {
 		//用于存放整理后的ModuleGroup
 		List<ModuleGroup> mgList = new ArrayList<ModuleGroup>();
 		AppConfig config = new AppConfig();
+
 
 		//获取所有权限对应的配置
 		List<AppConfig> al = new ArrayList<AppConfig>();
