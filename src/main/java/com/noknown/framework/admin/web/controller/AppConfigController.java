@@ -26,8 +26,6 @@ import com.noknown.framework.admin.model.ModuleGroup;
 import com.noknown.framework.admin.service.AppConfigService;
 import com.noknown.framework.common.base.BaseController;
 import com.noknown.framework.common.config.AppInfo;
-import com.noknown.framework.common.web.model.ErrorMsg;
-
 
 @Controller
 public class AppConfigController extends BaseController {
@@ -72,7 +70,7 @@ public class AppConfigController extends BaseController {
 
 		//先过滤掉重复的配置
 		int mgCount = 0;
-		if(al != null && al.size() > 0){
+		if (al.size() > 0){
 			//用于记录ModuleGroup是否已经出现过
 			Map<String, Integer> mgMap = new HashMap<>();
 			//用于记录Module是否已经出现过
