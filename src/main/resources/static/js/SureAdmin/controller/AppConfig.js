@@ -29,7 +29,7 @@ Ext.define('SureAdmin.controller.AppConfig', {
     	return Ext.get("soulviewsportal").centerPanel;
     },
     
-    initSingleWin : function(bc, loginName, scope){
+    initSingleWin : function(bc, loginName, showRight, showBottom, scope){
     	var me = scope || this;
     	/*
     	 * load global data
@@ -40,7 +40,11 @@ Ext.define('SureAdmin.controller.AppConfig', {
 			if(macConfig != null) {
 				uiConfig = macConfig.uiConfig;
 				Soul.uiModule.Message.initMessageModule();
-				var viewport = Ext.widget('sureadminviewportal', {baseConfig : bc});
+				var viewport = Ext.widget('sureadminviewportal', {
+					baseConfig : bc,
+                    showRight : showRight,
+					showBottom : showBottom
+				});
 				
 				Soul.Module.basePackage = "Module.soul.";
 				Soul.Module.loadLocal(macConfig.moduleList, viewport.baseConfig.language);

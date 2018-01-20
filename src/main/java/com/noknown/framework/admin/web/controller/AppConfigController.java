@@ -51,26 +51,17 @@ public class AppConfigController extends BaseController {
 
 		return outActionReturn(config, HttpStatus.OK);
 	}
-	
-	/****************** private func **************************/
-	/**
-	 * 获取所有用户所有的权限对应的配置，并作合并&排序
-	 * @param type
-	 * @param domain
-	 * @param containGroup
-	 * @return
-	 * @throws Exception
-	 */
+
 	private AppConfig getAppConfig(Collection<? extends GrantedAuthority> authorities, String type,
 			String domain, boolean containGroup) throws Exception {
 
 		//用于存放整理后的ModuleGroup
-		List<ModuleGroup> mgList = new ArrayList<ModuleGroup>();
+		List<ModuleGroup> mgList = new ArrayList<>();
 		AppConfig config = new AppConfig();
 
 
 		//获取所有权限对应的配置
-		List<AppConfig> al = new ArrayList<AppConfig>();
+		List<AppConfig> al = new ArrayList<>();
 		if (authorities != null && authorities.size() > 0) {
 			for(GrantedAuthority role : authorities){
 				AppConfig obj = appConfigService.getAppConfg(role.getAuthority());
@@ -83,9 +74,9 @@ public class AppConfigController extends BaseController {
 		int mgCount = 0;
 		if(al != null && al.size() > 0){
 			//用于记录ModuleGroup是否已经出现过
-			Map<String, Integer> mgMap = new HashMap<String, Integer>();
+			Map<String, Integer> mgMap = new HashMap<>();
 			//用于记录Module是否已经出现过
-			Map<String, Integer> mMap = new HashMap<String, Integer>();
+			Map<String, Integer> mMap = new HashMap<>();
 
 			for(AppConfig ac : al){
 				//一些设置，暂时没有用处
@@ -107,6 +98,7 @@ public class AppConfigController extends BaseController {
 							for(Module m : mList){
 								String mapName = mgName + m.getName();
 								if(!mMap.containsKey(mapName)){
+									mMap.put(mgName + m.getName(), 1);
 									mgList.get(idx).getSubModules().add(m);
 								}
 							}
@@ -115,7 +107,7 @@ public class AppConfigController extends BaseController {
 						List<Module> mList = mg.getSubModules();
 						if(mList != null && mList.size() > 0){
 							for(Module m : mList){
-								mMap.put(mgName + m.getName(), 0);
+								mMap.put(mgName + m.getName(), 1);
 							}
 						}
 						mgList.add(mgCount, mg);
@@ -134,7 +126,6 @@ public class AppConfigController extends BaseController {
 				Collections.sort(mg.getSubModules(), cm);
 			}
 			Collections.sort(mgList, cm2);
-
 			//AppConfig
 			config.setModuleList(mgList);
 		}

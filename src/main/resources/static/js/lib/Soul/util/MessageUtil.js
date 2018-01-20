@@ -55,7 +55,7 @@ Ext.define('Soul.util.MessageUtil', {
 		faultWin.show();
 	},
 
-	showErrorInfo : function (title, msg, callbackFn){
+	showErrorInfo : function (title, msg, callbackFn, logout){
 		var me = this;
 		
 		Ext.Msg.show({
@@ -65,15 +65,9 @@ Ext.define('Soul.util.MessageUtil', {
 	  		closable: false,
 	   		buttons: Ext.MessageBox.OK,
 	   		fn : function(buttonId, text, opt){
-	   			var isLogout = false;
-	   			Ext.each(me.logoutErrorCode, function(errorCode){
-	   				if(msg.indexOf(ERROR_INFO[errorCode]) > 0) {
-	   					isLogout = true;
-						//SureAuthInfo.logout();
-						return false;
-					}
-	   			});
-	   			if (!isLogout && callbackFn)
+	   			if (logout)
+	   				window.location.reload();
+	   			else if (!logout && typeof callbackFn == "function")
 	   				callbackFn();
 	   		},
 	   		icon: Ext.MessageBox.WARNING
@@ -111,11 +105,11 @@ Ext.define('Soul.util.MessageUtil', {
 		if (contentType == null && response.responseText.length > 0) {
 			me.showSysFaultInfo(LABEL.error, response.responseText);
 		} else if (contentType == null && response.responseText.length == 0){
-			me.showErrorInfo(response.status, response.statusText);
+			me.showErrorInfo(response.status, response.statusText, null, response.status == 401);
 		} else if (contentType != null && contentType.indexOf("application/json") >=0){
 			var errorMsg = Ext.decode(response.responseText);
 			me.showErrorInfo(LABEL.error, Soul.util.ErrorMsgUtil
-					.parseErrorMsg(errorMsg));
+					.parseErrorMsg(errorMsg), null, response.status == 401);
 		} 
 	}
 

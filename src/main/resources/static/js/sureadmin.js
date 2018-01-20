@@ -45,7 +45,7 @@ var ybApp = Ext.application({
 		    	//设置title
 		    	document.title = bc.data.headerTitle;
 		    	//初始化APP
-		    	me.initApp(bc.data, "");
+		    	me.initApp(bc.data, loginName);
 		    }
 		});
 	},
@@ -56,6 +56,6 @@ var ybApp = Ext.application({
 	
 	initApp :function(bc, loginName){
 		var appC = this.getController("AppConfig");
-		appC.initSingleWin(bc, loginName, appC);
+		appC.initSingleWin(bc, loginName, false, false, appC);
 	}
 });

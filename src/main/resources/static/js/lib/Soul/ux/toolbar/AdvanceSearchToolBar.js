@@ -334,6 +334,10 @@ Ext.define('Soul.ux.toolbar.AdvanceSearchToolBar', {
         	em = 59,
         	endTime = new Date(endDate);
 	    
+	    if (beginDate == null && endDate == null){
+	    	return null;
+	    }
+	    
 	    if (endDate == null)
 	    	endTime = new Date();
         
@@ -368,6 +372,10 @@ Ext.define('Soul.ux.toolbar.AdvanceSearchToolBar', {
 	    	eh = ehField.getValue(),
 	    	em = emField.getValue(),
 	    	endTime = new Date(endDate);
+	    
+	    if (beginDate == null && endDate == null){
+	    	return null;
+	    }
 	    
 	    if (endDate == null)
 	    	endTime = new Date();

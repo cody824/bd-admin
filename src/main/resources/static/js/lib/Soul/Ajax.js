@@ -50,17 +50,23 @@ Ext.define('Soul.Ajax', {
 	},
 
 	doRequest : function(options) {
-		var me = this, loadMask = options.loadMask || false;
+		var me = this, loadMask = options.loadMask || false,
 		loadMsg = options.loadMsg || LABEL.executing, success = options.success
 				|| Ext.emptyFn, failure = options.failure || Ext.emptyFn,
-				successMsg = options.successMsg || LABEL.executeSuccess;
+				successMsg = options.successMsg || LABEL.executeSuccess, quiet = options.hasOwnProperty("quiet")?options.quiet : false;
 		var parseFailure = true;
 		
 		if (options.parseFailure)
 			parseFailure = options.parseFailure;
 		
-		if (loadMask)
-			me.showLoadBar(loadMsg);
+		if (loadMask){
+			if (typeof loadMask == "string"){
+				me.showLoadBar(loadMask);
+			} else {
+				me.showLoadBar(loadMsg);
+			}
+		}
+			
 
 		if (options.headers == undefined) {
 			options.headers = {
@@ -76,7 +82,8 @@ Ext.define('Soul.Ajax', {
 				if (response.responseText != "") {
 					ret = Ext.decode(response.responseText); // 返回的信息
 				}
-				Soul.uiModule.Message.msg("", successMsg);
+				if (!quiet)
+					Soul.uiModule.Message.msg("", successMsg);
 				success(ret);
 			},
 			failure : function(response) {

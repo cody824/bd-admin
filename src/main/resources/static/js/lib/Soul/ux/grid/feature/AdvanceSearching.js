@@ -406,11 +406,22 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	                    } else if (item.searchType == 'number' && value != null){
   	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
   	 	 	    			sel.push(se);
-  	                    } else if (item.searchType == 'date'){
-  	                    	var se = new SQLException(relationOp, item.dataIndex, "between",  value,  !me.caseSensitive);
+  	                    } else if ((item.searchType == 'date' || item.searchType == 'time') && value != null){
+  	                    	var dateValue;
+  	                    	if (item.format){
+  	                    		dateValue = new Array();
+  	                    		if (value instanceof Array){
+  	                    			Ext.Array.each(value,function(d){
+  	                    				dateValue.push(Ext.Date.format(d, item.format));
+  	                    			});
+  	                    		} else {
+  	                    			dateValue = Ext.Date.format(value, item.format);
+  	                    		}
+  	                    	} else {
+  	                    		dateValue = value;
+  	                    	}
+  	                    	var se = new SQLException(relationOp, item.dataIndex, "between",  dateValue,  !me.caseSensitive);
   	 	 	    			sel.push(se);
-//  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
-//  	 	    				sel.push(se);
   	                    } else if (item.searchType == 'combo' && value != null){
   	                    	if (Array.isArray(value)){
   	                    		if (value.length > 0) {

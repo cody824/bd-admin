@@ -88,15 +88,15 @@ Ext.define('Soul.util.RendererUtil', {
 					retStr = retStr / 1024;
 					if (retStr > 10240) {
 						retStr = retStr / 1024;
-						retStr = Math.round(parseFloat(retStr)) + "T";
+						retStr = Math.round(parseFloat(retStr)) + "TB";
 					} else
-						retStr = Math.round(parseFloat(retStr)) + "G";
+						retStr = Math.round(parseFloat(retStr)) + "GB";
 				} else
-					retStr = Math.round(parseFloat(retStr)) + "M";
+					retStr = Math.round(parseFloat(retStr)) + "MB";
 			} else
-				retStr = Math.round(parseFloat(retStr)) + "K";
+				retStr = Math.round(parseFloat(retStr)) + "KB";
 		} else
-			retStr = val + "";
+			retStr = val + "Byte";
 		return retStr;
 	},
 
@@ -219,6 +219,32 @@ Ext.define('Soul.util.RendererUtil', {
 		upminutes = upminutes % 60;
 		retStr += (upminutes.toFixed(0) + LABEL.minute);
 
+		return retStr;
+	},
+	
+	getTimeLongStr2 : function(val) {
+		var updays, uphours, upminutes,ups, retStr = "";
+		updays = val / (60 * 60 * 24);
+		if (updays >= 1){
+			retStr += (parseInt(updays) + LABEL.day);
+			val = val % (60 * 60 * 24);
+		}
+		uphours = val / (60 * 60);
+		if (uphours >= 1){
+			retStr += (parseInt(uphours) + LABEL.hour);
+			val = val % (60 * 60);
+		}
+		upminutes = val / 60;
+		if (upminutes >= 1){
+			retStr += (parseInt(upminutes) + LABEL.minute);
+			val = val % 60;
+		}
+		ups = val.toFixed(0);
+		val = val - ups;
+		if (ups >= 1)
+			retStr += (parseInt(ups) + "秒");
+		if (val > 0)
+			retStr += (parseInt(val * 1000) + "毫秒");
 		return retStr;
 	},
 

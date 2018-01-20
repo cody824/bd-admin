@@ -735,6 +735,7 @@ Ext.define('Soul.ux.grid.feature.Searching', {
                         checked: 'all' === this.checkIndexes,  
                         dataIndex: column.dataIndex, 
                         comboData: column.comboData,
+                        format : column.format,
                         checkHandler : function(menuItem ,checked){
                         	if (checked) {
                         		advanceTb.showQueryCondition(column, advanceTb);
