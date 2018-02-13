@@ -28,6 +28,11 @@ Ext.define('Soul.view.ModulePortlet', {
 		
 		if(me.currentView == '')
     		me.currentView = me.defaultView;
+
+        if (!me.icon && !me.iconCls) {
+            var name = me.moduleName.substr(me.moduleName.lastIndexOf(".") + 1).toLowerCase();
+            me.icon = "/img/module/16/" + name + ".png";
+        }
 		
 		Ext.apply(this, {
 			frame : true,

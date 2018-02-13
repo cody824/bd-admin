@@ -3,30 +3,31 @@ package com.noknown.framework.admin.model;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Properties;
 
+/**
+ * @author guodong
+ * @date 2018/1/28
+ */
 public class Module implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 5290893523927251122L;
-	
+
 	/**
 	 * 模块名称
 	 */
 	private String name;
-	
+
 	/**
 	 * 是否禁止
 	 */
 	private boolean disable;
-	
+
 	/**
 	 * 许可
 	 */
 	private int permissions;
-	
+
 	/**
 	 * 属性配置
 	 */
@@ -64,21 +65,15 @@ public class Module implements Serializable {
 		this.name = name;
 	}
 
-	public static boolean isModuleDir(String dirPath) {
-
-		return true;
-
-	}
-
 	public static ArrayList<Module> initModules(ArrayList<Module> array,
-			int right, String moduleDirPath) {
+	                                            int right, String moduleDirPath) {
 		Module md;
-		ArrayList<Module> mdArray = new ArrayList<Module>();
-		Iterator<Module> it = array.iterator();
-		while (it.hasNext()) {
-			md = it.next();
-			if (right < md.getPermissions())
+		ArrayList<Module> mdArray = new ArrayList<>();
+		for (Module anArray : array) {
+			md = anArray;
+			if (right < md.getPermissions()) {
 				continue;
+			}
 			Module module = initModule(moduleDirPath, md.getName());
 			mdArray.add(module);
 		}
@@ -86,7 +81,7 @@ public class Module implements Serializable {
 
 	}
 
-	public static Module initModule(String moduleDir, String moduleName) {
+	private static Module initModule(String moduleDir, String moduleName) {
 		Module module = new Module();
 		module.setDisable(false);
 		module.setName(moduleName);
@@ -94,28 +89,33 @@ public class Module implements Serializable {
 	}
 
 	public static ArrayList<String> getJsFileList(String moduleDir) {
-		ArrayList<String> array = new ArrayList<String>();
+		ArrayList<String> array = new ArrayList<>();
 		File dir = new File(moduleDir);
-		if (dir != null && dir.isDirectory()) {
+		if (dir.exists() && dir.isDirectory()) {
 			String[] files = dir.list();
-			for (int i = 0; i < files.length; i++) {
-				if (files[i].endsWith(".js"))
-					array.add(files[i]);
-
+			if (files != null) {
+				for (String file : files) {
+					if (file.endsWith(".js")) {
+						array.add(file);
+					}
+				}
 			}
 		}
 		return array;
 	}
 
 	public static ArrayList<String> getLocalFileList(String moduleDir) {
-		ArrayList<String> array = new ArrayList<String>();
+		ArrayList<String> array = new ArrayList<>();
 		File dir = new File(moduleDir);
-		if (dir != null && dir.isDirectory()) {
+		if (dir.exists() && dir.isDirectory()) {
 			String[] files = dir.list();
-			for (int i = 0; i < files.length; i++) {
-				if (files[i].endsWith(".lang"))
-					array.add(files[i]);
+			if (files != null) {
+				for (String file : files) {
+					if (file.endsWith(".lang")) {
+						array.add(file);
+					}
 
+				}
 			}
 		}
 		return array;

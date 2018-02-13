@@ -15,6 +15,10 @@ Ext.define('Soul.util.RendererUtil', {
 		return a;
 	},
 
+    fromObj: function (obj, v) {
+        return obj[v] || v;
+    },
+
 	getEnclosureName : function(val) {
 		var str = val;
 		if (val == "master") {

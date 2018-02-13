@@ -181,57 +181,66 @@ REGEX = {
 
 /*字符串中不能含有汉字，首尾不能有空格*/
 Ext.apply(Ext.form.VTypes, {
-	isIp:function(v,field) {
-		field.vtypeText = LABEL.inputRightIP;
-		if (v == "") return true;
-		else return isIp(v);
-	},
-	
-	noChinese : function(value, field){
-		var pattern = REGEX.noChineseAndSymbol;
-		if(pattern.exec(value) != null){
-			field.vtypeText = LABEL.noChineseAndSymbol;
-			return true;
-		}
-		return false;
-	},
-	
-	noChinese1 : function(value, field){
-		var pattern = REGEX.noChineseAndSymbol1;
-		if(pattern.exec(value) != null){
-			field.vtypeText = LABEL.noChineseAndSymbol;
-			return true;
-		}
-		return false;
-	},
-		
-	daterange : function(val, field) {
+    isIp: function (v, field) {
+        field.vtypeText = LABEL.inputRightIP;
+        if (v == "") return true;
+        else return isIp(v);
+    },
+
+    noChinese: function (value, field) {
+        var pattern = REGEX.noChineseAndSymbol;
+        if (pattern.exec(value) != null) {
+            field.vtypeText = LABEL.noChineseAndSymbol;
+            return true;
+        }
+        return false;
+    },
+
+    noChinese1: function (value, field) {
+        var pattern = REGEX.noChineseAndSymbol1;
+        if (pattern.exec(value) != null) {
+            field.vtypeText = LABEL.noChineseAndSymbol;
+            return true;
+        }
+        return false;
+    },
+
+    daterange: function (val, field) {
         var date = field.parseDate(val);
 
-        if(!date){
+        if (!date) {
             return false;
         }
         if (field.startDateField && (!this.dateRangeMax || (date.getTime() != this.dateRangeMax.getTime()))) {
-        	var panel = field.up('panel');
-        	if (panel) {
-        		 var start = panel.down('datefield[name=' + field.startDateField + ']');
-                 start.setMaxValue(date);
-                 start.validate();
-                 this.dateRangeMax = date;
-        	}
+            var panel = field.up('panel');
+            if (panel) {
+                var start = panel.down('datefield[name=' + field.startDateField + ']');
+                start.setMaxValue(date);
+                start.validate();
+                this.dateRangeMax = date;
+            }
         } else if (field.endDateField && (!this.dateRangeMin || (date.getTime() != this.dateRangeMin.getTime()))) {
-        	var panel = field.up('panel');
-        	if (panel) {
-	        	var end = panel.down('datefield[name=' + field.endDateField + ']');
-	            end.setMinValue(date);
-	            end.validate();
-	            this.dateRangeMin = date;
-        	}
+            var panel = field.up('panel');
+            if (panel) {
+                var end = panel.down('datefield[name=' + field.endDateField + ']');
+                end.setMinValue(date);
+                end.validate();
+                this.dateRangeMin = date;
+            }
         }
         /*
          * Always return true since we're only using this vtype to set the
          * min/max allowed values (these are tested for afteHr the vtype test)
          */
         return true;
-    }
+    },
+    confirmPwd: function (value, field) {
+        // field 的 confirmPwd 属性
+        if (field.passwordField) {
+            var pwd = Ext.getCmp(field.passwordField);
+            return (value == pwd.getValue());
+        }
+        return true;
+    },
+    confirmPwdText: '两次输入的密码不一致！'
 });

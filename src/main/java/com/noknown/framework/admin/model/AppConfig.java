@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * @author guodong
+ * @date 2018/1/28
+ */
 public class AppConfig {
 
 	/**
 	 * 属性配置
 	 */
 	private Properties uiConfig;
-	
+
 	/**
 	 * 模块列表
 	 */
 	private List<ModuleGroup> moduleList;
 
 	public List<ModuleGroup> getModuleList() {
-		if (moduleList == null)
+		if (moduleList == null) {
 			moduleList = new ArrayList<ModuleGroup>();
+		}
 		return moduleList;
 	}
 

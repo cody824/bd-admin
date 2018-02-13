@@ -5,23 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * @author guodong
+ * @date 2018/1/28
+ */
 public class ModuleGroup implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -6201138146619458798L;
-	
+
 	/**
 	 * 模块组名称
 	 */
 	private String name;
-	
+
 	/**
 	 * 子模块列表
 	 */
 	private List<Module> subModules;
-	
+
 	/**
 	 * 属性配置
 	 */
@@ -33,7 +37,7 @@ public class ModuleGroup implements Serializable {
 
 	public List<Module> getSubModules() {
 		if (subModules == null) {
-			subModules = new ArrayList<Module>();
+			subModules = new ArrayList<>();
 		}
 		return subModules;
 	}

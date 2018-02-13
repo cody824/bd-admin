@@ -152,18 +152,25 @@ Ext.define('Soul.view.Portal', {
 //			Soul.Module.initModule(me.centerPanel, record.get('md').name, record.get('md').config);
 //			sessionStorage.setItem("currentMg", data.name);
 //    	});
-		if (data.config == null)
+
+
+        if (data.config == null)
 			data.config = {};
-		var item = {
+        var item = {
             title: data.config.hideTitle? "" : MODULE_GROUP[data.name],
             closbale : false,
             border: false,
             name : data.name,
             hidden : data.config.hide ? true : false,
-//            iconCls: 'md-user',
-            iconCls: data.config.cls,
             items : [panel]
         };
+        if (data.config.cls) {
+            item.iconCls = data.config.cls;
+        } else {
+            item.icon = "/img/module/16/" + data.name.toLowerCase() + ".png";
+        }
+
+
 		return item;
 	},
 	
@@ -173,7 +180,8 @@ Ext.define('Soul.view.Portal', {
 			var moduleButton = Ext.create('Ext.Button', {
 			    text: MODULE_NAME[md.fullName],
 			    tooltip : MODULE_HELP[md.fullName],
-			    iconCls: 'md-' + md.name,
+                // iconCls: 'md-' + md.name,
+                icon: "/img/module/16/" + md.name.toLowerCase() + ".png",
 			    toggleGroup : 'moduleSelect',
 			    scale: 'medium',
 			    name : 'mdButton-' + md.fullName,
@@ -362,7 +370,8 @@ Ext.define('Soul.view.Portal', {
 		var me = this;
 		var moduleButton = Ext.create('Ext.Button', {
 		    text: MODULE_NAME[md.fullName],
-		    iconCls: 'md-' + md.name + '-32',
+            // iconCls: 'md-' + md.name + '-32',
+            icon: "/img/module/32/" + md.name.toLowerCase() + ".png",
 		    scale: 'large',
 		    autoHeight : true,
 		    handler : function(btn , pressed, eObj) {
