@@ -1,7 +1,7 @@
 package com.noknown.framework.admin.dao;
 
 import com.noknown.framework.admin.model.AppConfig;
-import com.noknown.framework.common.exception.DAOException;
+import com.noknown.framework.common.exception.DaoException;
 
 /**
  * @author guodong
@@ -14,7 +14,7 @@ public interface AppConfigDao {
 	 *
 	 * @param role 角色
 	 * @return 配置
-	 * @throws DAOException 异常
+	 * @throws DaoException 异常
 	 */
-	AppConfig getAppConfig(String role) throws DAOException;
+	AppConfig getAppConfig(String role) throws DaoException;
 }

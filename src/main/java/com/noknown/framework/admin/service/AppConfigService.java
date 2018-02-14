@@ -1,7 +1,7 @@
 package com.noknown.framework.admin.service;
 
 import com.noknown.framework.admin.model.AppConfig;
-import com.noknown.framework.common.exception.DAOException;
+import com.noknown.framework.common.exception.DaoException;
 import com.noknown.framework.common.exception.ServiceException;
 
 /**
@@ -15,8 +15,8 @@ public interface AppConfigService {
 	 *
 	 * @param role 角色
 	 * @return 配置
-	 * @throws DAOException     异常
+	 * @throws DaoException     异常
 	 * @throws ServiceException 异常
 	 */
-	AppConfig getAppConfg(String role) throws DAOException, ServiceException;
+	AppConfig getAppConfg(String role) throws DaoException, ServiceException;
 }
