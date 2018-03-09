@@ -14,8 +14,6 @@ Ext.define('Module.Soul.role.Portlet', {
     
 	title: ROLE_LABEL.roleInfo,//logo下面的table表头
 			
-	iconCls : 'md-role',
-	
 	moduleName : 'Module.Soul.role',
     
     moduleSessionView : 'Module.Soul.roleCurrentView',
@@ -33,8 +31,8 @@ Ext.define('Module.Soul.role.Portlet', {
 	initComponent : function() {
     	this.callParent(arguments);
 	},
-	
-	buildRoleOptMenu : function(){//加载菜单----用户操作的相关菜单：增删改
+
+    buildRoleOptMenu: function () {
     	var menu = Ext.create('Ext.menu.Menu', {
     		name : 'roleoperation',
 	        style: {
@@ -44,11 +42,13 @@ Ext.define('Module.Soul.role.Portlet', {
 		                {
 							text: ROLE_LABEL.addRole,
 							disabled:false,
+                            hidden: Module.Soul.role.Config.supportAdd ? false : true,
 							name : 'toAddRole',
 							iconCls : 'x-add-icon'
 		                },
 		                {
 							text: ROLE_LABEL.delRole,
+                            hidden: Module.Soul.role.Config.supportDel ? false : true,
 							disabled:true,
 							name : 'deleteRole',
 							iconCls : 'x-del-icon'
@@ -58,18 +58,6 @@ Ext.define('Module.Soul.role.Portlet', {
 		                	disabled:true,
 		                	name : 'toUpdateRole',
 		                	iconCls : 'update'
-		                },
-		                {
-		                	text: '查看角色组关系',
-		                	disabled:true,
-		                	name : 'delRoleForDowGroup',
-		                	iconCls : 'pool_setting'
-		                },
-		                {
-		                	text: '查看角色用户关系',
-		                	disabled:true,
-		                	name : 'delRoleForDowUser',
-		                	iconCls : 'pool_setting'
 		                }
 	             ]
 	    });
@@ -79,7 +67,7 @@ Ext.define('Module.Soul.role.Portlet', {
     initToolbar : function(){
 		var toolbar = this.callParent(arguments),
 			roleMenu = {
-	            text: ROLE_LABEL.operation,
+                text: "角色操作",
 	            iconCls: 'pool_setting',  
 	            menu: this.buildRoleOptMenu()//指定子类自己的方法，并进行渲染
 	        };

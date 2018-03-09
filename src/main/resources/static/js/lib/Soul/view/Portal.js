@@ -98,7 +98,9 @@ Ext.define('Soul.view.Portal', {
 		}
 		var currentMg = sessionStorage.getItem('currentMg');
 		if(currentMg != null) {
-			this.leftPanel.down('panel[name=' + currentMg + ']').expand();
+            if (this.leftPanel.down('panel[name=' + currentMg + ']')) {
+                this.leftPanel.down('panel[name=' + currentMg + ']').expand();
+            }
 		}
 	},
 	
@@ -336,7 +338,7 @@ Ext.define('Soul.view.Portal', {
 			bodyStyle: 'padding:15px;border:0;', 
 			items : panel
 		});
-	}, 
+    },
 	
 	buildModuleGroupPanel : function(data){
 		var sumModules = new Array();

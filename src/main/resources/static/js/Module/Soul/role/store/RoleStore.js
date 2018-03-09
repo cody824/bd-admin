@@ -17,7 +17,7 @@ Ext.define('Module.Soul.role.store.RoleStore', {//此类为ajax请求后台取�
         	filter : {}
         },
         api: {
-        	read: '/suresecurity/role/'
+            read: '/security/role/'
         },
         reader: {
             type: 'json',
