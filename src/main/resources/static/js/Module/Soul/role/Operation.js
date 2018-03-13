@@ -325,14 +325,18 @@ Ext.define('Module.Soul.role.Operation', {
             },
             items: [{
                 name: 'userKey',
-                allowBlank: true,
                 fieldLabel: "登录名/邮箱/手机"
             }],
             buttonAlign: 'center',
             buttons: [{
                 text: "增加用户",
                 handler: function () {
+                    var formValid = addForm.form.isValid();
+                    if (!formValid) {
+                        return;
+                    }
                     var params = addForm.getForm().getValues();
+
                     Soul.Ajax.request({
                         url: '/security/role/' + role.id + "/user/?userKey=" + params.userKey,
                         method: 'put',
