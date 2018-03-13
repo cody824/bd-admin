@@ -334,7 +334,7 @@ Ext.define('Module.Soul.role.Operation', {
                 handler: function () {
                     var params = addForm.getForm().getValues();
                     Soul.Ajax.request({
-                        url: '/security/role/' + role.id + "/user/" + params.userKey,
+                        url: '/security/role/' + role.id + "/user/?userKey=" + params.userKey,
                         method: 'put',
                         success: cb
                     });
