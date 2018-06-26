@@ -204,8 +204,9 @@ Ext.define('Soul.view.Portal', {
 	newHeader : function (){	
 		var me = this;
 		var data = Soul.Ajax.getSyncText("/innerHtml/indexHeader.html");
-		
-		var html = Ext.util.Format.format(data, me.baseConfig.headerLogo, "管理员");//SureAuthInfo.loginUserName
+        var user = window.adminUser || "管理员";
+
+        var html = Ext.util.Format.format(data, me.baseConfig.headerLogo, user);//SureAuthInfo.loginUserName
 		
 		var header = new Ext.Panel({ 
 			region: 'north',
