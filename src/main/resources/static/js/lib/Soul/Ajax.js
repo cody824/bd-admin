@@ -55,8 +55,8 @@ Ext.define('Soul.Ajax', {
 				|| Ext.emptyFn, failure = options.failure || Ext.emptyFn,
 				successMsg = options.successMsg || LABEL.executeSuccess, quiet = options.hasOwnProperty("quiet")?options.quiet : false;
 		var parseFailure = true;
-		
-		if (options.parseFailure)
+
+        if (options.hasOwnProperty('parseFailure'))
 			parseFailure = options.parseFailure;
 		
 		if (loadMask){
