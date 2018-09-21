@@ -40,6 +40,7 @@ Ext.define('Soul.ux.toolbar.AdvanceSearchToolBar', {
 		var stateId = column.id + "_searchStatus";
 		
 		if (searchType == 'number') {
+            var decimalPrecision = column.decimalPrecision || 8;
 			var logicalOpCombo = Ext.create('Ext.form.field.ComboBox', {
 		        hideLabel: true,
 		        store: me.numberStore,
@@ -63,6 +64,7 @@ Ext.define('Soul.ux.toolbar.AdvanceSearchToolBar', {
 				stateful : true,
 				name : "value" + column.text, 
 				stateful : true,
+                decimalPrecision: decimalPrecision,
 				width: 50
 			});
 			var grid = me.up('grid');

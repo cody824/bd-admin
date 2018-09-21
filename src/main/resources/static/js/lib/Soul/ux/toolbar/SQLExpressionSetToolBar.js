@@ -60,9 +60,7 @@ Ext.define('Soul.ux.toolbar.SQLExpressionSetToolBar', {
 		});
 		
 		if (searchType == 'number') {
-
-            var decimalPrecision = column.decimalPrecision || 2;
-
+            var decimalPrecision = column.decimalPrecision || 8;
 			var logicalOpCombo = Ext.create('Ext.form.field.ComboBox', {
 		        hideLabel: true,
 		        store: me.numberStore,
