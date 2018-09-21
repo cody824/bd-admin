@@ -60,6 +60,9 @@ Ext.define('Soul.ux.toolbar.SQLExpressionSetToolBar', {
 		});
 		
 		if (searchType == 'number') {
+
+            var decimalPrecision = column.decimalPrecision || 2;
+
 			var logicalOpCombo = Ext.create('Ext.form.field.ComboBox', {
 		        hideLabel: true,
 		        store: me.numberStore,
@@ -78,7 +81,8 @@ Ext.define('Soul.ux.toolbar.SQLExpressionSetToolBar', {
 			me.add(logicalOpCombo);
 			me.add({
 //				hidden : true,
-				name : "value" + column.text, 
+                name: "value" + column.text,
+                decimalPrecision: decimalPrecision,
 				xtype : "numberfield"
 			});
 		} else if (searchType == 'date'){
