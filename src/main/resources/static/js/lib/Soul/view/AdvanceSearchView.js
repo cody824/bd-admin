@@ -569,7 +569,6 @@ Ext.define('Soul.view.AdvanceSearchView', {
   	                	var relationOp = advanceBar.getRelationOp(item, advanceBar);
   	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
   	                	var value = advanceBar.getQueryValue(item, advanceBar);
-  	                   
   	                	if (item.searchType == 'string' && value.length > 0) {
   	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  "%25" + value + "%25",  !me.caseSensitive);
   	 	    				sel.push(se);

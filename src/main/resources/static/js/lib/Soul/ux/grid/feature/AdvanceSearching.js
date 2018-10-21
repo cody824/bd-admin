@@ -399,11 +399,10 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	                	var relationOp = advanceBar.getRelationOp(item, advanceBar);
   	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
   	                	var value = advanceBar.getQueryValue(item, advanceBar);
-  	                   
   	                	if (item.searchType == 'string' && value.length > 0) {
   	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  "%25" + value + "%25",  !me.caseSensitive);
   	 	    				sel.push(se);
-  	                    } else if (item.searchType == 'number' && value != null){
+                        } else if (item.searchType == 'number' && value != null && !isNaN(value)) {
   	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
   	 	 	    			sel.push(se);
   	                    } else if ((item.searchType == 'date' || item.searchType == 'time') && value != null){
@@ -438,8 +437,10 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	  	                    	sel.push(se);
   	                    	}
   	                    } else if (item.searchType == 'boolean' && value != null){
-  	                    	var se = new SQLException(relationOp, item.dataIndex, '=',  value,  !me.caseSensitive);
-  	                    	sel.push(se);
+                            if ((value + "") === "true" || (value + "") === "false") {
+                                var se = new SQLException(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
+                                sel.push(se);
+                            }
   	                    }
   	                }  
   	            });

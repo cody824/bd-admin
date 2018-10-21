@@ -74,8 +74,8 @@ Ext.define('Soul.ux.grid.feature.Searching', {
     
     /**  
      * @cfg {Array} 用户选择的
-     */ 
-    userCheckIndexes:[],  
+     */
+    userCheckIndexes: [],
  
     /**  
      * @cfg {Array} disableIndexes Array of index names to disable (not show in the menu), e.g. ['persTitle', 'persTitle2']  
@@ -610,7 +610,6 @@ Ext.define('Soul.ux.grid.feature.Searching', {
  	                	var relationOp = advanceBar.getRelationOp(item, advanceBar);
  	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
  	                	var value = advanceBar.getQueryValue(item, advanceBar);
- 	                   
  	                	if (item.searchType == 'string' && value.length > 0) {
  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  "%25" + value + "%25",  !me.caseSensitive);
  	 	    				sel.push(se);
@@ -815,6 +814,7 @@ Ext.define('Soul.ux.grid.feature.Searching', {
 	
 	updateParams : function(opt){
 		var tag = this.id || this.grid.id || "default";
+        var me = this;
 		
 		var configObj = Ext.JSON.decode(localStorage.getItem(tag + '-config')) || new Object();
 		
@@ -828,7 +828,16 @@ Ext.define('Soul.ux.grid.feature.Searching', {
 			this.regExpMode = configObj.regExpMode == null ? this.regExpMode : configObj.regExpMode;
 			this.caseSensitive = configObj.caseSensitive == null ? this.caseSensitive : configObj.caseSensitive;
 			this.userCheckIndexes = configObj.userCheckIndexes == null ? this.userCheckIndexes : configObj.userCheckIndexes;
-		}
+        } else {
+            if (this.menu) {
+                me.userCheckIndexes = [];
+                Ext.each(this.menu.items.items, function (item) {
+                    if (item.checked && item.hasOwnProperty("dataIndex")) {
+                        me.userCheckIndexes.push(item.dataIndex);
+                    }
+                })
+            }
+        }
 		configObj.searchHighlight = this.searchHighlight;
 		configObj.showSearchBar = this.showSearchBar;
 		configObj.showAdvanceSearchBar = this.showAdvanceSearchBar;
