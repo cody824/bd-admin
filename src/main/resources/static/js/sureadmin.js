@@ -41,8 +41,8 @@ var ybApp = Ext.application({
 		    	me.getController("BaseConfig").getLanguageFile(bc.data.language);
 		    	
 		    	me.saveAppId(bc.data.appId);
-		    	
-		    	//设置title
+
+                //设置title
 		    	document.title = bc.data.headerTitle;
 		    	//初始化APP
 		    	me.initApp(bc.data, loginName);

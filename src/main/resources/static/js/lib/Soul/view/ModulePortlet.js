@@ -166,7 +166,7 @@ Ext.define('Soul.view.ModulePortlet', {
 			updateButton = {
 				text : LABEL.updateData,
 				iconCls : 'update',
-				handler : me.dataObj.updateCallbackFn
+                handler: me.dataObj ? me.dataObj.updateCallbackFn : Ext.emptyFn
 			};
 		return updateButton;
 	},

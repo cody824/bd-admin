@@ -74,6 +74,18 @@ Ext.define('Soul.view.AdvanceSearchGrid', {
 		};
 		return searching;
 	},
+
+    addMenuHandler: function (name, handler) {
+        var me = this;
+        var itemR = me.contextMenu.down('menuitem[name=' + name + ']');
+        var item = me.portlet.down('menuitem[name=' + name + ']');
+        if (itemR) {
+            itemR.on('click', handler);
+        }
+        if (item) {
+            item.on('click', handler);
+        }
+    },
 	
 	afterRender : function() {
 		var me = this;

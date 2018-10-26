@@ -358,6 +358,10 @@ Ext.define('Soul.util.RendererUtil', {
 		return type.toLowerCase();
 	},
 
+    qtip: function (val) {
+        return '<span data-qtip="' + val + '">' + val + '</span>';
+    },
+
 	fileStateLib : {},
 
 	isFileExist : function(path) {
