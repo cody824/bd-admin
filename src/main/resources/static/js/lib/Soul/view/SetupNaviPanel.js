@@ -5,10 +5,6 @@ Ext.define('Soul.view.SetupNaviPanel', {
 
 	HELPMESSAGE : {},
 
-	ICONCLS : {},
-
-	HELPKEY : {},
-
 	autoDestroy : true,
 
 	labelWidth : 120,
@@ -34,7 +30,7 @@ Ext.define('Soul.view.SetupNaviPanel', {
 	},
 
 	getButtonGroup : function() {
-		var me = this, items = new Array();
+        var me = this, items = [];
 		Ext.each(me.portlet.supportView, function(view, index, itself) {
 			if (index > 0)
 				items.push(me.getConfigButton(view));
@@ -47,7 +43,7 @@ Ext.define('Soul.view.SetupNaviPanel', {
 
 		var moduleButton = Ext.create('Ext.Button', {
 			text : me.portlet.VIEW[view],
-			iconCls : me.portlet.ICONCLS[view],
+            icon: me.portlet.ICON[view],
 			scale : 'large',
 			autoHeight : true,
 			handler : function(btn, pressed, eObj) {
@@ -66,7 +62,7 @@ Ext.define('Soul.view.SetupNaviPanel', {
 			}, {
 				xtype : 'component',
 				width : 120,
-				html : me.HELPMESSAGE[me.HELPKEY[view]]
+                html: me.HELPMESSAGE[view]
 			} ]
 
 		};
