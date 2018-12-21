@@ -44,7 +44,7 @@ Ext.define('Soul.view.ModulePortlet', {
                 xtype: 'toolbar',
                 items: me.initToolbar()
             }],
-			layout: 'fit',
+            layout: 'card',
 			id: this.moduleName
 		});
     	this.callParent(arguments);
@@ -57,14 +57,16 @@ Ext.define('Soul.view.ModulePortlet', {
 		config = config || {};
 		if(item == null) {
 			Ext.apply(config, {id : me.id + '-' + me.currentView, anchor : '100% 100%', portlet : me});
-			 item = Ext.create(me.currentView, config);
-			 sessionStorage.setItem(me.moduleSessionView, me.currentView);
-			 me.removeAll();
-			 me.add(item);
-		}  
-		if (item !== null && typeof(item.updateView) == 'function') {
-			Ext.apply(item, config);
-			item.updateView(item);
+            item = Ext.create(me.currentView, config);
+            me.add(item);
+        }
+        if (item != null) {
+            sessionStorage.setItem(me.moduleSessionView, me.currentView);
+            me.layout.setActiveItem(me.id + '-' + me.currentView);
+            if (typeof(item.updateView) == 'function') {
+                Ext.apply(item, config);
+                item.updateView(item);
+            }
 		}
     },
     
@@ -78,7 +80,7 @@ Ext.define('Soul.view.ModulePortlet', {
     
    	initToolbar : function(){
     	var me = this,
-    		toolbar = new Array(),
+            toolbar = [],
 			viewSelect = me.getViewSelectMenu(),
 			updateButton = me.getUpdateButton();
     	toolbar.push(viewSelect);
@@ -91,7 +93,7 @@ Ext.define('Soul.view.ModulePortlet', {
     },
     
     initTools : function(){
-    	var tools = new Array();
+        var tools = [];
 		
     	tools.push(
     		{
@@ -127,7 +129,7 @@ Ext.define('Soul.view.ModulePortlet', {
     
     getViewSelectMenu : function(){
     	var me = this,
-    		viewItems = new Array();
+            viewItems = [];
     	
 		for(var i = 0; i < me.supportView.length; i++){
 			var menu = {

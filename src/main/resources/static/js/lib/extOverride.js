@@ -178,3 +178,12 @@ Ext.override(Ext.data.Connection, {
 		}
 
 });
+
+
+Array.prototype.clone = function () {
+    var a = [];
+    for (var i = 0, l = this.length; i < l; i++) {
+        a.push(this[i]);
+    }
+    return a;
+};

@@ -231,7 +231,7 @@ Ext.define('Soul.view.PropertyGrid', {
     filterSource : function(){
 		var me = this;
 	 	me.properties = me.properties || me.getPropertyArray(me.source);
-	 	var obj = new Object();
+        var obj = {};
 	 	Ext.Array.each(me.properties, function(name, index, itSelf){
 			obj[name] = me.source[name];
 		});
@@ -239,7 +239,7 @@ Ext.define('Soul.view.PropertyGrid', {
     },
     
     getPropertyArray : function(obj){
-	    var array = new Array(); 
+        var array = [];
 	    for(var p in obj){
 	        if (typeof(obj[p]) != "function") {
 	           array.push(p);
@@ -551,7 +551,7 @@ Ext.define('Soul.view.PropertyGrid', {
             me.sourceConfig = Ext.apply({}, sourceConfig);  
             me.configure(me.sourceConfig);
         }
-        me.propStore.setSource(source);
+        me.propStore.setSource(me.source);
     },
 
     /**
