@@ -294,11 +294,10 @@ Ext.define('Soul.view.AdvanceSearchView', {
 			me.pagingBar.doRefresh();
 		else
 			me.pagingBar.moveFirst();
-		;
-	},
+    },
 	
 	updateParams : function(opt){
-		var configObj = Ext.JSON.decode(localStorage.getItem(this.id + '-config')) || new Object();
+        var configObj = Ext.JSON.decode(localStorage.getItem(this.id + '-config')) || {};
 		
 		if (opt === 'load') {
 			this.searchHighlight = configObj.searchHighlight == null ? this.searchHighlight : configObj.searchHighlight;
@@ -325,8 +324,7 @@ Ext.define('Soul.view.AdvanceSearchView', {
     	var me = this,
     		searchBar = me.initSearchBar(), 
     		toolbar = Ext.Array.merge(searchBar, []);
-    	;
-    	toolbar.push(searchBar, '->' , {
+        toolbar.push(searchBar, '->', {
 				iconCls : 'settings',
 				xtype:'splitbutton',
         		name : 'pageconfigtool',
@@ -407,7 +405,7 @@ Ext.define('Soul.view.AdvanceSearchView', {
      },
      
      initSearchBar : function(){
-    		searchBar = new Array();
+         searchBar = [];
     	 
     	 	// add menu  
     	 	this.menu = Ext.create('Ext.menu.Menu');  
@@ -532,13 +530,13 @@ Ext.define('Soul.view.AdvanceSearchView', {
  	                if(item.checked && item.dataIndex ) { 
  	                	
  	                    if (item.searchType == 'string') {
- 	                    	var se = new SQLException("or", item.dataIndex, "like",  "%25" + val + "%25",  !me.caseSensitive);
+                            var se = new SQLExpression("or", item.dataIndex, "like", "%25" + val + "%25", !me.caseSensitive);
  	    					sel.push(se);
  	                    } else if (item.searchType == 'number'){
                              var number_value = parseInt(val);
                              // if(number_value != null && !isNaN(number_value)){
                              if(number_value){
-                                 var se = new SQLException("or", item.dataIndex, "=",  number_value,  !me.caseSensitive);
+                                 var se = new SQLExpression("or", item.dataIndex, "=", number_value, !me.caseSensitive);
                                  sel.push(se);
                              }
  	                    }else if (item.searchType == 'combo'){
@@ -548,10 +546,10 @@ Ext.define('Soul.view.AdvanceSearchView', {
                                      comboDataDict[comboDataItem[1]] = comboDataItem[0];
                                  });
                                  if(comboDataDict[val] != null){
-                                     var se = new SQLException("or", item.dataIndex, '=',  comboDataDict[val],  !me.caseSensitive);
+                                     var se = new SQLExpression("or", item.dataIndex, '=', comboDataDict[val], !me.caseSensitive);
                                      sel.push(se);
                                  }else{
-                                     var se = new SQLException("or", item.dataIndex, '=',  val,  !me.caseSensitive);
+                                     var se = new SQLExpression("or", item.dataIndex, '=', val, !me.caseSensitive);
                                      sel.push(se);
                                  }
                              }
@@ -570,33 +568,33 @@ Ext.define('Soul.view.AdvanceSearchView', {
   	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
   	                	var value = advanceBar.getQueryValue(item, advanceBar);
   	                	if (item.searchType == 'string' && value.length > 0) {
-  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  "%25" + value + "%25",  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, logicalOp, "%25" + value + "%25", !me.caseSensitive);
   	 	    				sel.push(se);
   	                    } else if (item.searchType == 'number' && value != null){
-  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, logicalOp, value, !me.caseSensitive);
   	 	 	    			sel.push(se);
   	                    } else if (item.searchType == 'date'){
-  	                    	var se = new SQLException(relationOp, item.dataIndex, "between",  value,  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, "between", value, !me.caseSensitive);
   	 	 	    			sel.push(se);
-//  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
+//  	                    	var se = new SQLExpression(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
 //  	 	    				sel.push(se);
   	                    } else if (item.searchType == 'combo' && value != null){
   	                    	if (Array.isArray(value)){
   	                    		if (value.length > 0) {
   	                    			var comboSel = [];
   	  	                    		Ext.each(value, function(cv){
-  	  	                    			var se = new SQLException("or", item.dataIndex, '=',  cv,  !me.caseSensitive);
+                                        var se = new SQLExpression("or", item.dataIndex, '=', cv, !me.caseSensitive);
   	  	                    			comboSel.push(se);
   	  	                    		});
   	  	                    		var ses = new SQLExpressionSet(relationOp, comboSel);
   	  	                    		filter.addSQLExpressionSet(ses);
   	                    		}
   	                    	} else {
-  	                    		var se = new SQLException(relationOp, item.dataIndex, '=',  value,  !me.caseSensitive);
+                                var se = new SQLExpression(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
   	  	                    	sel.push(se);
   	                    	}
   	                    } else if (item.searchType == 'boolean' && value != null){
-  	                    	var se = new SQLException(relationOp, item.dataIndex, '=',  value,  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
   	                    	sel.push(se);
   	                    }
   	                }  
@@ -612,7 +610,7 @@ Ext.define('Soul.view.AdvanceSearchView', {
      }, // eo function buildFilter 
 	  
     initAdvanceSearchBar : function(scope){
-    	 var advanceSearchBar = new Array();
+        var advanceSearchBar = [];
          return advanceSearchBar;
     },
      

@@ -122,8 +122,7 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
     		searchBar = me.initSearchBar(), 
     		customBar = me.initCustomFilter(customFilter),
     		toolbar = Ext.Array.merge(searchBar, customBar);
-    	;
-    	toolbar.push(searchBar, '->' , {
+        toolbar.push(searchBar, '->', {
 				iconCls : 'settings',
 				xtype:'splitbutton',
             	menu: Ext.create('Ext.menu.Menu', {
@@ -209,7 +208,7 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
      },
      
      initSearchBar : function(){
-    		searchBar = new Array();
+         searchBar = [];
     	 
     	 	// add menu  
     	 	this.menu = Ext.create('Ext.menu.Menu');  
@@ -314,8 +313,8 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
 					me.pbMoveFirst();
     			}
     		},
-         	scope:me 
-		}
+         	scope:me
+        };
 		return sb;
     },
     
@@ -382,13 +381,13 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
              var sel = [];
              if (Array.isArray(panel.initFilter)) {
             	Ext.each(panel.initFilter, function(v, i, self){
-            		var se = new SQLException(v.relationOp, v.attr, v.logicalOp,  v.value,  !me.caseSensitive);
+                    var se = new SQLExpression(v.relationOp, v.attr, v.logicalOp, v.value, !me.caseSensitive);
 	    			sel.push(se);
             	}); 
              }
              if (Array.isArray(me.currentCF)){
             	 Ext.each(me.currentCF, function(v, i, self){
-             		var se = new SQLException(v.relationOp, v.attr, v.logicalOp,  v.value,  !me.caseSensitive);
+                     var se = new SQLExpression(v.relationOp, v.attr, v.logicalOp, v.value, !me.caseSensitive);
  	    			sel.push(se);
              	});
              }
@@ -400,15 +399,15 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
   	                	var value = advanceBar.getQueryValue(item, advanceBar);
   	                	if (item.searchType == 'string' && value.length > 0) {
-  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  "%25" + value + "%25",  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, logicalOp, "%25" + value + "%25", !me.caseSensitive);
   	 	    				sel.push(se);
                         } else if (item.searchType == 'number' && value != null && !isNaN(value)) {
-  	                    	var se = new SQLException(relationOp, item.dataIndex, logicalOp,  value,  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, logicalOp, value, !me.caseSensitive);
   	 	 	    			sel.push(se);
   	                    } else if ((item.searchType == 'date' || item.searchType == 'time') && value != null){
   	                    	var dateValue;
   	                    	if (item.format){
-  	                    		dateValue = new Array();
+                                dateValue = [];
   	                    		if (value instanceof Array){
   	                    			Ext.Array.each(value,function(d){
   	                    				dateValue.push(Ext.Date.format(d, item.format));
@@ -419,26 +418,26 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	                    	} else {
   	                    		dateValue = value;
   	                    	}
-  	                    	var se = new SQLException(relationOp, item.dataIndex, "between",  dateValue,  !me.caseSensitive);
+                            var se = new SQLExpression(relationOp, item.dataIndex, "between", dateValue, !me.caseSensitive);
   	 	 	    			sel.push(se);
   	                    } else if (item.searchType == 'combo' && value != null){
   	                    	if (Array.isArray(value)){
   	                    		if (value.length > 0) {
   	                    			var comboSel = [];
   	  	                    		Ext.each(value, function(cv){
-  	  	                    			var se = new SQLException("or", item.dataIndex, '=',  cv,  !me.caseSensitive);
+                                        var se = new SQLExpression("or", item.dataIndex, '=', cv, !me.caseSensitive);
   	  	                    			comboSel.push(se);
   	  	                    		});
   	  	                    		var ses = new SQLExpressionSet(relationOp, comboSel);
   	  	                    		filter.addSQLExpressionSet(ses);
   	                    		}
   	                    	} else {
-  	                    		var se = new SQLException(relationOp, item.dataIndex, '=',  value,  !me.caseSensitive);
+                                var se = new SQLExpression(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
   	  	                    	sel.push(se);
   	                    	}
   	                    } else if (item.searchType == 'boolean' && value != null){
                             if ((value + "") === "true" || (value + "") === "false") {
-                                var se = new SQLException(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
+                                var se = new SQLExpression(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
                                 sel.push(se);
                             }
   	                    }
