@@ -449,16 +449,16 @@ Ext.define('Soul.view.AdvanceSearchView', {
  	         }]);  
  	         map.stopEvent = true;  
  	     }, this, {single:true});  
-    	 	searchBar.push({  
-                 text:'属性',
+    	 	searchBar.push({
+                text: LABEL.property,
                  menu:this.menu  
              }, this.field, {
-             	text: "重置", 
+                text: LABEL.reset,
              	iconCls:'reset',
              	handler : this.resetAdvanceBar,
  	            scope:this 
              }, {
-             	text: this.searchText, 
+                text: LABEL.search,
              	iconCls:this.iconCls,
              	handler : this.pbMoveFirst,
  	            scope:this 

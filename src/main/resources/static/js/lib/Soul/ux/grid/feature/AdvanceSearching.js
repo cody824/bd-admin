@@ -252,16 +252,16 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
  	         }]);  
  	         map.stopEvent = true;  
  	     }, this, {single:true});  
- 	     searchBar.push({  
-             text:'属性',
+ 	     searchBar.push({
+             text: LABEL.property,
              menu:this.menu  
          }, this.field, {
-         	text: "重置", 
+             text: LABEL.reset,
          	iconCls:'reset',
          	handler : this.resetAdvanceBar,
             scope:this 
          }, {
-         	text: this.searchText, 
+             text: LABEL.search,
          	iconCls:this.iconCls,
          	handler : this.pbMoveFirst,
             scope:this 
@@ -274,7 +274,7 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
     	var cf = [];
     	if (customFilter) {
     		cf.push({
-	         	text: "快捷检索：", 
+                text: LABEL.quickSearch + "：",
 			});
     		if (Array.isArray(customFilter)) {
     			Ext.each(customFilter, function(v, i, self){

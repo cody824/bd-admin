@@ -1,36 +1,36 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.noknown</groupId>
-	<artifactId>bd-admin</artifactId>
-	<version>0.0.2-snapshot</version>
-	<name>bd-admin</name>
-	<description>管理后台基础依赖</description>
+    <groupId>com.noknown</groupId>
+    <artifactId>bd-admin</artifactId>
+    <version>0.0.2-snapshot</version>
+    <name>bd-admin</name>
+    <description>管理后台基础依赖</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.noknown</groupId>
-			<artifactId>framework</artifactId>
-			<version>0.0.2-snapshot</version>
-		</dependency>
-		<dependency>
-			<groupId>com.noknown</groupId>
-			<artifactId>bd-base-web</artifactId>
-			<version>0.0.1-snapshot</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.noknown</groupId>
+            <artifactId>framework</artifactId>
+            <version>0.0.2-snapshot</version>
+        </dependency>
+        <dependency>
+            <groupId>com.noknown</groupId>
+            <artifactId>bd-base-web</artifactId>
+            <version>0.0.1-snapshot</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<finalName>bd-admin</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <finalName>bd-admin</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
