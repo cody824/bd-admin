@@ -19122,7 +19122,8 @@ body.x-nbr .x-tab-default-right-frameInfo {
 /* line 123, ../../../ext-theme-neutral/sass/src/tree/Panel.scss */
 .x-tree-icon {
   width: 16px;
-  height: 20px;
+    height: 16px;
+    background-size: cover;
 }
 
 /* line 128, ../../../ext-theme-neutral/sass/src/tree/Panel.scss */

@@ -88,7 +88,6 @@ Ext.define('Soul.util.ObjectView', {
 	showInNewWin : function(panel, title){
 		var win = new Ext.Window( {
 			title : title,
-			id : title + '-dataInfowin',
 			stateful : false,
 			items : [ panel],
 			modal: true
