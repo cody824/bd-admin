@@ -105,7 +105,7 @@ Ext.define('Soul.view.Portal', {
 	},
 	
 	buildModuleGroup : function(data){
-		var sumModules = new Array();
+		var sumModules = [];
 		
 		for(var i = 0; i < data.subModules.length; i++){
 			var md = data.subModules[i];
@@ -205,12 +205,11 @@ Ext.define('Soul.view.Portal', {
 		var me = this;
 		var data = Soul.Ajax.getSyncText("/innerHtml/indexHeader.html");
         var user = window.adminUser || "管理员";
-
         var html = Ext.util.Format.format(data, me.baseConfig.headerLogo, user);//SureAuthInfo.loginUserName
 		
 		var header = new Ext.Panel({ 
 			region: 'north',
-			height: 85,
+			height: me.baseConfig.headerHeight || 60,
 			id: 'header',
 //			bodyStyle:'background:#000 no-repeat left top;',
 			frame : true,
@@ -319,7 +318,7 @@ Ext.define('Soul.view.Portal', {
 	 },
 	
 	buildWelcomePanel : function(data){
-		var items = new Array();
+		var items = [];
 		for ( var i = 0; i < data.length; i++){
 			var mg = this.buildModuleGroupPanel(data[i]);
 			items.push(mg);
@@ -342,7 +341,7 @@ Ext.define('Soul.view.Portal', {
     },
 	
 	buildModuleGroupPanel : function(data){
-		var sumModules = new Array();
+		var sumModules = [];
 		
 		for(var i = 0; i < data.subModules.length; i++){
 			var md = data.subModules[i];
