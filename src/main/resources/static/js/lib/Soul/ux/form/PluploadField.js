@@ -3,7 +3,7 @@ Ext.define('Soul.ux.form.PluploadField', {
     extend: 'Ext.form.field.Text',
     xtype: 'plupFile',
     alias: ['widget.plupFile'],
-    requires: ['Ext.form.trigger.Component', 'Ext.button.Button', 'Ext.window.Toast'],
+    requires: ['Ext.button.Button'],
     //plup对象
     uploader: null,
     //上传文件最大数量限制,最小只能设置为1

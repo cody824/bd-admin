@@ -393,8 +393,8 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
              }
              if (me.showAdvanceSearchBar){
              	var advanceBar = panel.down('advstoolbar');
-             	 me.menu.items.each(function(item) {  
-  	                if(item.checked && item.dataIndex ) { 
+             	 me.menu.items.each(function(item) {
+                     if (item.checked && item.dataIndex) {
   	                	var relationOp = advanceBar.getRelationOp(item, advanceBar);
   	                	var logicalOp = advanceBar.getLogicalOp(item, advanceBar);
   	                	var value = advanceBar.getQueryValue(item, advanceBar);
@@ -425,11 +425,16 @@ Ext.define('Soul.ux.grid.feature.AdvanceSearching', {
   	                    		if (value.length > 0) {
   	                    			var comboSel = [];
   	  	                    		Ext.each(value, function(cv){
+                                        if (Ext.isString(cv) && cv.length == 0) {
+                                            return true;
+                                        }
                                         var se = new SQLExpression("or", item.dataIndex, '=', cv, !me.caseSensitive);
   	  	                    			comboSel.push(se);
   	  	                    		});
-  	  	                    		var ses = new SQLExpressionSet(relationOp, comboSel);
-  	  	                    		filter.addSQLExpressionSet(ses);
+                                    if (comboSel.length > 0) {
+                                        var ses = new SQLExpressionSet(relationOp, comboSel);
+                                        filter.addSQLExpressionSet(ses);
+                                    }
   	                    		}
   	                    	} else {
                                 var se = new SQLExpression(relationOp, item.dataIndex, '=', value, !me.caseSensitive);
