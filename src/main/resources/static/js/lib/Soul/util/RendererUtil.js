@@ -2,7 +2,7 @@ Ext.define('Soul.util.RendererUtil', {
 	singleton : true,
 	
 	buildComBo : function(obj, array){
-		var a = new Array();
+        var a = [];
 		if (Array.isArray(array)){
 			Ext.each(array, function(v){
 				a.push([v, obj[v]]);
@@ -359,7 +359,12 @@ Ext.define('Soul.util.RendererUtil', {
 	},
 
     qtip: function (val) {
-        return '<span data-qtip="' + val + '">' + val + '</span>';
+        if (val) {
+            return '<span data-qtip="' + val + '">' + val + '</span>';
+        } else {
+            return '';
+        }
+
     },
 
 	fileStateLib : {},
