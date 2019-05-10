@@ -359,12 +359,7 @@ Ext.define('Soul.util.RendererUtil', {
 	},
 
     qtip: function (val) {
-        if (val) {
-            return '<span data-qtip="' + val + '">' + val + '</span>';
-        } else {
-            return '';
-        }
-
+        return '<span data-qtip="' + val + '">' + val + '</span>';
     },
 
 	fileStateLib : {},

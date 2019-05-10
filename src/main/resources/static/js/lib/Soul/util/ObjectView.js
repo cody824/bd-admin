@@ -84,13 +84,23 @@ Ext.define('Soul.util.ObjectView', {
 			child.fireEvent('beforeshow', child);
 		}
     },
-	
-	showInNewWin : function(panel, title){
+
+    showInNewWin: function (panel, title, closeCb) {
 		var win = new Ext.Window( {
 			title : title,
 			stateful : false,
 			items : [ panel],
-			modal: true
+            layout: 'fit',
+            autoDestroy: true,
+            bodyStyle: 'padding:5px',
+            modal: true,
+            listeners: {
+                close: function () {
+                    if (typeof closeCb == 'function') {
+                        closeCb();
+                    }
+                }
+            }
 		});
 		win.show();
     },
