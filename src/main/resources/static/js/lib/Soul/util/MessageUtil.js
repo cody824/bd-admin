@@ -12,19 +12,21 @@ Ext.define('Soul.util.MessageUtil', {
 		if (win != null) {
 			var panel = win.getComponent(0);
 			var oldData = panel.data;
-			html += oldData;
+            if (oldData) {
+                html += oldData;
+            }
 			win.destroy();
 			win = null;
 		}
 		html += msg;
-		var reportLink = '<a id="report_action" href="mailto:' + this.errorReportMail + '?subject=Client Error Report">report</a>';
-		html += reportLink;
+        // var reportLink = '<a id="report_action" href="mailto:' + this.errorReportMail + '?subject=Client Error Report">report</a>';
+        // html += reportLink;
 		var faultPanel = new Ext.Panel( {
 			width : 800,
 			height : 400,
 			autoScroll : true,
 			plain : true,
-			data : html,
+            // data : html,
 			html:html
 		});
 		var faultWin = new Ext.Window( {
@@ -36,13 +38,15 @@ Ext.define('Soul.util.MessageUtil', {
 			layout : 'fit',
 			items : faultPanel,
 			buttonAlign: 'center',
-			buttons: [{
-				text: LABEL.report_error,
-				handler : function(){
-					var obj = document.getElementById("report_action");
-					obj.click();
-				}
-			}, {
+            buttons: [
+                // 	{
+                // 	text: LABEL.report_error,
+                // 	handler : function(){
+                // 		var obj = document.getElementById("report_action");
+                // 		obj.click();
+                // 	}
+                // },
+                {
 				text: LABEL.copy_error,
 				handler : function(){
 					copyToClipboard(html);
@@ -102,9 +106,13 @@ Ext.define('Soul.util.MessageUtil', {
 	parseResponse: function(response) {
 		var me = this,
 			contentType = response.getResponseHeader('Content-Type');
-		if (contentType == null && response.responseText.length > 0) {
+
+        console.log(contentType);
+        console.log(response);
+
+        if ((contentType == null || contentType.trim() == "text/html") && response.responseText.length > 0) {
 			me.showSysFaultInfo(LABEL.error, response.responseText);
-		} else if (contentType == null && response.responseText.length == 0){
+        } else if (!contentType && response.responseText.length == 0) {
 			me.showErrorInfo(response.status, response.statusText, null, response.status == 401);
 		} else if (contentType != null && contentType.indexOf("application/json") >=0){
 			var errorMsg = Ext.decode(response.responseText);

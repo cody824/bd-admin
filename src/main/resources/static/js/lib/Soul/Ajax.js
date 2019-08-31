@@ -92,7 +92,7 @@ Ext.define('Soul.Ajax', {
                     me.hideLoadBar();
                 if (parseFailure)
                     Soul.util.MessageUtil.parseResponse(response);
-                failure();
+                failure(response);
             }
         });
         Ext.Ajax.request(options);
