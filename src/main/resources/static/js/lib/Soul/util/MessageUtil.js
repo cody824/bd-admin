@@ -106,10 +106,6 @@ Ext.define('Soul.util.MessageUtil', {
 	parseResponse: function(response) {
 		var me = this,
 			contentType = response.getResponseHeader('Content-Type');
-
-        console.log(contentType);
-        console.log(response);
-
         if ((contentType == null || contentType.trim() == "text/html") && response.responseText.length > 0) {
 			me.showSysFaultInfo(LABEL.error, response.responseText);
         } else if (!contentType && response.responseText.length == 0) {
