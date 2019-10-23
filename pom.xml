@@ -12,7 +12,7 @@
         <dependency>
             <groupId>com.noknown</groupId>
             <artifactId>framework</artifactId>
-            <version>0.0.2-snapshot</version>
+            <version>0.0.3-snapshot</version>
         </dependency>
         <dependency>
             <groupId>com.noknown</groupId>
