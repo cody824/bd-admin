@@ -4,20 +4,25 @@
 
     <groupId>com.noknown</groupId>
     <artifactId>bd-admin</artifactId>
-    <version>0.0.2-snapshot</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>bd-admin</name>
     <description>管理后台基础依赖</description>
+
+    <properties>
+        <base-web.version>0.0.1</base-web.version>
+        <framework.version>0.0.2</framework.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.noknown</groupId>
             <artifactId>framework</artifactId>
-            <version>0.0.3-snapshot</version>
+            <version>${framework.version}</version>
         </dependency>
         <dependency>
             <groupId>com.noknown</groupId>
             <artifactId>bd-base-web</artifactId>
-            <version>0.0.1-snapshot</version>
+            <version>${base-web.version}</version>
         </dependency>
     </dependencies>
 
@@ -33,4 +38,18 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases-bd</id>
+            <url>https://repo.rdc.aliyun.com/repository/69750-release-8usEq1/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots-bd</id>
+            <url>https://repo.rdc.aliyun.com/repository/69750-snapshot-HE1WZw/</url>
+        </snapshotRepository>
+        <site>
+            <id>website</id>
+            <url>file:/home/install/mavensite/${project.artifactId}/${project.version}</url>
+        </site>
+    </distributionManagement>
 </project>
