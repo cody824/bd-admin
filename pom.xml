@@ -4,7 +4,7 @@
 
     <groupId>com.noknown</groupId>
     <artifactId>bd-admin</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>bd-admin</name>
     <description>管理后台基础依赖</description>
 
