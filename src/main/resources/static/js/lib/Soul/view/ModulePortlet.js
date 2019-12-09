@@ -19,6 +19,8 @@ Ext.define('Soul.view.ModulePortlet', {
     dataObj : null,
     
     configObj : null,
+
+    closable: true,
     
 	initComponent : function() {
  		var me = this;
@@ -45,6 +47,14 @@ Ext.define('Soul.view.ModulePortlet', {
                 items: me.initToolbar()
             }],
             layout: 'card',
+            listeners: {
+                close: function () {
+                    var soulviewportal = me.up('soulviewportal');
+                    if (soulviewportal) {
+                        soulviewportal.gotoWeclome();
+                    }
+                }
+            },
 			id: this.moduleName
 		});
     	this.callParent(arguments);
