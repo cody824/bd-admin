@@ -232,8 +232,6 @@ Ext.define('Soul.view.Portal', {
     },
 
     newMain: function () {
-        console.log("1");
-        console.log(this.mainType);
         if (this.mainType == 'tab') {
             return new Ext.tab.Panel({
                 id: 'app-portal',
