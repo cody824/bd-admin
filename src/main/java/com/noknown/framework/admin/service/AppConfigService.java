@@ -19,4 +19,14 @@ public interface AppConfigService {
 	 * @throws ServiceException 异常
 	 */
 	AppConfig getAppConfg(String role) throws DaoException, ServiceException;
+
+	/**
+	 * 获取角色对应配置
+	 *
+	 * @param role 角色
+	 * @return 配置
+	 * @throws DaoException     异常
+	 * @throws ServiceException 异常
+	 */
+	AppConfig getAppConfg(String role, String page) throws DaoException, ServiceException;
 }

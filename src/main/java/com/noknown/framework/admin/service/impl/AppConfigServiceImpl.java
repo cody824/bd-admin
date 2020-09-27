@@ -4,6 +4,7 @@ import com.noknown.framework.admin.dao.AppConfigDao;
 import com.noknown.framework.admin.model.AppConfig;
 import com.noknown.framework.admin.service.AppConfigService;
 import com.noknown.framework.common.exception.DaoException;
+import com.noknown.framework.common.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,11 @@ public class AppConfigServiceImpl implements AppConfigService {
 	@Override
 	public AppConfig getAppConfg(String role) throws DaoException {
 		return acDao.getAppConfig(role);
+	}
+
+	@Override
+	public AppConfig getAppConfg(String role, String page) throws DaoException, ServiceException {
+		return acDao.getAppConfig(role, page);
 	}
 
 }

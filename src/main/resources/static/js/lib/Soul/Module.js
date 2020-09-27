@@ -105,6 +105,9 @@ Ext.define('Soul.Module', {
 
     initModule: function (container, fullName) {
         var module = container.getComponent(fullName);
+        Ext.each(container.items.items, function (item) {
+            item.fireEvent('toBackground', item)
+        })
         if (module == null) {
             module = Ext.create(fullName + '.Portlet');
             container.add(module);

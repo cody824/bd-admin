@@ -5,15 +5,14 @@ import com.noknown.framework.admin.model.Module;
 import com.noknown.framework.admin.model.ModuleGroup;
 import com.noknown.framework.admin.service.AppConfigService;
 import com.noknown.framework.common.base.BaseController;
+import com.noknown.framework.common.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -37,22 +36,36 @@ public class AppConfigController extends BaseController {
 
 		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
 
-		AppConfig config = getAppConfig(authorities);
+		AppConfig config = getAppConfig(authorities, null);
 
 		return outActionReturn(config, HttpStatus.OK);
 	}
 
-	private AppConfig getAppConfig(Collection<? extends GrantedAuthority> authorities) throws Exception {
+	@RequestMapping(value = "/config/{page}", method = RequestMethod.GET)
+	public @ResponseBody
+	Object getAppConfig(@PathVariable String page) throws Exception {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth == null) {
+			return outActionError("请登录", HttpStatus.UNAUTHORIZED);
+		}
+
+		Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
+
+		AppConfig config = getAppConfig(authorities, page);
+
+		return outActionReturn(config, HttpStatus.OK);
+	}
+
+	private AppConfig getAppConfig(Collection<? extends GrantedAuthority> authorities, String page) throws Exception {
 
 		//用于存放整理后的ModuleGroup
 		List<ModuleGroup> mgList = new ArrayList<>();
 		AppConfig config = new AppConfig();
-
 		//获取所有权限对应的配置
 		List<AppConfig> al = new ArrayList<>();
 		if (authorities != null && authorities.size() > 0) {
 			for(GrantedAuthority role : authorities){
-				AppConfig obj = appConfigService.getAppConfg(role.getAuthority());
+				AppConfig obj = appConfigService.getAppConfg(role.getAuthority(), page);
 				if (obj != null) {
 					al.add(obj);
 				}

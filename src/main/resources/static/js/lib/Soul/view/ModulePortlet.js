@@ -21,6 +21,8 @@ Ext.define('Soul.view.ModulePortlet', {
     configObj : null,
 
     closable: true,
+
+	showInF: false,
     
 	initComponent : function() {
  		var me = this;
@@ -53,7 +55,16 @@ Ext.define('Soul.view.ModulePortlet', {
                     if (soulviewportal) {
                         soulviewportal.gotoWeclome();
                     }
-                }
+                },
+				toBackground: function () {
+                	me.showInF = false
+					Ext.each(me.items.items, function (item) {
+						item.fireEvent('toBackground', item)
+					})
+				},
+				toForeground: function () {
+					me.showInF = true
+				}
             },
 			id: this.moduleName
 		});
@@ -61,6 +72,7 @@ Ext.define('Soul.view.ModulePortlet', {
 	},
 	
 	initUI : function(config){
+		this.fireEvent('toForeground', this)
     	var me = this,
     		item = me.getComponent(me.id + '-' + me.currentView);
 		sessionStorage.setItem("currentModule", me.moduleName);
@@ -77,6 +89,7 @@ Ext.define('Soul.view.ModulePortlet', {
                 Ext.apply(item, config);
                 item.updateView(item);
             }
+			item.fireEvent('toForeground', item)
 		}
     },
     
