@@ -15,7 +15,7 @@ Ext.define('Soul.ux.button.PluploadButton', {
                 try {
                     btn.uploader.uploader.destroy();
                 } catch (e) {
-                    console.log(e);
+                    // console.error(e);
                 }
             }
         })

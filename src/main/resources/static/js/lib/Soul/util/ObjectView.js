@@ -103,6 +103,7 @@ Ext.define('Soul.util.ObjectView', {
             }
 		});
 		win.show();
+		return win;
     },
 
     showDownloadWin: function (downloadInfo) {
