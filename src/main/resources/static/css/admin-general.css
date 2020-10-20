@@ -27,22 +27,22 @@ input, textarea, select {
     font: 12px "courier new";
 }
 
-a:visited {
+#header-div a:visited {
     color: #1F1D32;
     text-decoration: none;
 }
 
-a:link {
+#header-div a:link {
     color: #1F1D32;
     text-decoration: none;
 }
 
-a:hover {
+#header-div a:hover {
     color: #FC0000;
     text-decoration: underline;
 }
 
-a:active {
+#header-div a:active {
     color: #FC0000;
     text-decoration: underline;
 }
