@@ -144,7 +144,8 @@ LABEL = {
     userConfigInfo: '个人信息设置',
     tree_page_button_msg: '显示 {0} - {1}条，共 {2} 条',
     baseUserInfo: '个人基本信息',
-    upload: '上传图片'
+    upload: '上传图片',
+    passwordCheck: '您的密码复杂度太低（密码中必须包含大小写字母、数字、特殊字符），请及时改密码！'
 };
 
 MESSAGE = {

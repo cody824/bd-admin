@@ -176,7 +176,8 @@ REGEX = {
 	integerOnly:/^(-[1-9]|[1-9])[0-9]*$/,
 	naturalIntegerOnly:/^[0-9]+$/,
 	noChineseAndSymbol:/^[^：·！￥……（）｛｝【】、；“”‘’《》，,。？——\u4e00-\u9fa5]*$/,
-	noChineseAndSymbol1:/^[^：·！￥……（）｛｝【】、；“”‘’《》，。？——\u4e00-\u9fa5]*$/
+	noChineseAndSymbol1:/^[^：·！￥……（）｛｝【】、；“”‘’《》，。？——\u4e00-\u9fa5]*$/,
+	passwordCheck: /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z0-9]).{8,30}/
 };
 
 /*字符串中不能含有汉字，首尾不能有空格*/
@@ -242,5 +243,14 @@ Ext.apply(Ext.form.VTypes, {
         }
         return true;
     },
-    confirmPwdText: '两次输入的密码不一致！'
-});
+    confirmPwdText: '两次输入的密码不一致！',
+
+	passwordCheck: function (value, field) {
+		var pattern = REGEX.passwordCheck;
+		if (pattern.exec(value) != null) {
+			field.vtypeText = LABEL.passwordCheck;
+			return true;
+		}
+		return false;
+	}
+ });
