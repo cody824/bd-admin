@@ -119,9 +119,11 @@ Ext.override(Ext.data.Connection, {
         var authorization = "";//SureAuthTool.buildAuthrization(options.requestOptionUrl, options.requestOptionMethod, headers);
         Ext.apply(headers, {Authorization: authorization});
 
-        var csrfToken = document.querySelector("meta[name='_csrf']").getAttribute("th:content")
-        var csrfHeader = document.querySelector("meta[name='_csrf_header']").getAttribute("th:content")
-        headers[csrfHeader] = csrfToken
+        if (document.querySelector("meta[name='_csrf']") && document.querySelector("meta[name='_csrf_header']") ) {
+            var csrfToken = document.querySelector("meta[name='_csrf']").getAttribute("th:content")
+            var csrfHeader = document.querySelector("meta[name='_csrf_header']").getAttribute("th:content")
+            headers[csrfHeader] = csrfToken
+        }
         // set up all the request headers on the xhr object
         try {
             for (key in headers) {
